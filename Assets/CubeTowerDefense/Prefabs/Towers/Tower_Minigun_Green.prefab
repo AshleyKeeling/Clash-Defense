@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7355248616878556692}
-  - component: {fileID: -7167649597167265673}
   - component: {fileID: 6433101400211953539}
   m_Layer: 0
   m_Name: Tower_Minigun_Green
@@ -35,27 +34,6 @@ Transform:
   - {fileID: 3941249101610526036}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-7167649597167265673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7355248616878556693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e10cf607181ce4a39a25a4b39131294e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TowerData
-  buildCost: 80
-  viewRadius: 6.5
-  fireRate: 0.38
-  bulletDamage: 14
-  canFire: 1
-  abilityFireRate: 0.29
-  abilityBulletDamage: 20
-  isBoostAbilityEnabled: 0
-  isDamageAbilityEnabled: 0
 --- !u!114 &6433101400211953539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BaseTowerController
   gunObj: {fileID: 3941249101610526036}
   shootEffect: {fileID: 2652089313666795428}
+  towerData: {fileID: 11400000, guid: 88fb3c61ddaa645209d647836b3fa927, type: 2}
 --- !u!1001 &5556118284301131963
 PrefabInstance:
   m_ObjectHideFlags: 0

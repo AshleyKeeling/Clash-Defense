@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3802618639411804535}
   - component: {fileID: 2533200481098420551}
-  - component: {fileID: -8133481431209690987}
   m_Layer: 0
   m_Name: Tower_RPG_Blue
   m_TagString: Tower
@@ -49,29 +48,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RPGTowerController
   gunObj: {fileID: 2860288221917631669}
   shootEffect: {fileID: 5946186360809362150}
+  towerData: {fileID: 11400000, guid: 28e7f41bac52e4e4d9f12d8be2ae051b, type: 2}
   rocket: {fileID: 5847816865451096318, guid: 729cfdd656cfa494dae57a7061387541, type: 3}
   rocketSpeed: 10
---- !u!114 &-8133481431209690987
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3802618639411804532}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e10cf607181ce4a39a25a4b39131294e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TowerData
-  buildCost: 70
-  viewRadius: 8
-  fireRate: 1.6
-  bulletDamage: 35
-  canFire: 1
-  abilityFireRate: 1.2
-  abilityBulletDamage: 49
-  isBoostAbilityEnabled: 0
-  isDamageAbilityEnabled: 0
 --- !u!1001 &3755896626148861252
 PrefabInstance:
   m_ObjectHideFlags: 0

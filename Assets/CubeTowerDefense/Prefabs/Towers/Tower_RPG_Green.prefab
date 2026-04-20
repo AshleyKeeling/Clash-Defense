@@ -41,6 +41,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2533200481098420551, guid: 7c660fb9d8266f44488cf92891bf3a7c, type: 3}
+      propertyPath: towerData
+      value: 
+      objectReference: {fileID: 11400000, guid: 5ec8f1a85807b4a999fbbc387c04223c, type: 2}
+    - target: {fileID: 2533200481098420551, guid: 7c660fb9d8266f44488cf92891bf3a7c, type: 3}
       propertyPath: rocketSpeed
       value: 15
       objectReference: {fileID: 0}
@@ -96,7 +100,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -8133481431209690987, guid: 7c660fb9d8266f44488cf92891bf3a7c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

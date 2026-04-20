@@ -1,11 +1,14 @@
 using UnityEngine;
 
-public class TowerData : MonoBehaviour
+[CreateAssetMenu(fileName = "TowerDataScriptableObject", menuName = "Scriptable Objects/TowerDataScriptableObject")]
+public class TowerDataScriptableObject : ScriptableObject
 {
     [Header("General Settings")]
     public string name;
+    public int markLevel;
     public int buildCost;
     public float viewRadius = 10f;
+    public Sprite towerImg;
 
     [Header("Gun Settings")]
     public float fireRate = 1f;

@@ -8,30 +8,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8133481431209690987, guid: 7c660fb9d8266f44488cf92891bf3a7c, type: 3}
-      propertyPath: fireRate
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: -8133481431209690987, guid: 7c660fb9d8266f44488cf92891bf3a7c, type: 3}
-      propertyPath: buildCost
-      value: 160
-      objectReference: {fileID: 0}
-    - target: {fileID: -8133481431209690987, guid: 7c660fb9d8266f44488cf92891bf3a7c, type: 3}
-      propertyPath: viewRadius
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: -8133481431209690987, guid: 7c660fb9d8266f44488cf92891bf3a7c, type: 3}
-      propertyPath: bulletDamage
-      value: 80
-      objectReference: {fileID: 0}
-    - target: {fileID: -8133481431209690987, guid: 7c660fb9d8266f44488cf92891bf3a7c, type: 3}
-      propertyPath: abilityFireRate
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: -8133481431209690987, guid: 7c660fb9d8266f44488cf92891bf3a7c, type: 3}
-      propertyPath: abilityBulletDamage
-      value: 112
-      objectReference: {fileID: 0}
     - target: {fileID: 91666090600211791, guid: 7c660fb9d8266f44488cf92891bf3a7c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -40,6 +16,10 @@ PrefabInstance:
       propertyPath: fireRate
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2533200481098420551, guid: 7c660fb9d8266f44488cf92891bf3a7c, type: 3}
+      propertyPath: towerData
+      value: 
+      objectReference: {fileID: 11400000, guid: 5029dc183f34c47bdaf7847de717fb16, type: 2}
     - target: {fileID: 2533200481098420551, guid: 7c660fb9d8266f44488cf92891bf3a7c, type: 3}
       propertyPath: rocketSpeed
       value: 20
@@ -54,10 +34,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3802618639411804535, guid: 7c660fb9d8266f44488cf92891bf3a7c, type: 3}
       propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3802618639411804535, guid: 7c660fb9d8266f44488cf92891bf3a7c, type: 3}
-      propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3802618639411804535, guid: 7c660fb9d8266f44488cf92891bf3a7c, type: 3}
@@ -96,7 +72,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

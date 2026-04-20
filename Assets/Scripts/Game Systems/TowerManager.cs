@@ -50,7 +50,7 @@ public class TowerManager : MonoBehaviour
             // enable isDamageAbilityEnabled to true
             foreach (GameObject tower in towers)
             {
-                tower.GetComponent<TowerData>().isDamageAbilityEnabled = true;
+                tower.GetComponent<BaseTowerController>().towerData.isDamageAbilityEnabled = true;
             }
 
             // wait x amount of time
@@ -59,7 +59,7 @@ public class TowerManager : MonoBehaviour
             // disable isDamageAbilityEnable to false
             foreach (GameObject tower in towers)
             {
-                tower.GetComponent<TowerData>().isDamageAbilityEnabled = false;
+                tower.GetComponent<BaseTowerController>().towerData.isDamageAbilityEnabled = false;
             }
 
             // re enables btn
@@ -82,7 +82,7 @@ public class TowerManager : MonoBehaviour
             // enable isDamageAbilityEnabled to true
             foreach (GameObject tower in towers)
             {
-                tower.GetComponent<TowerData>().isBoostAbilityEnabled = true;
+                tower.GetComponent<BaseTowerController>().towerData.isBoostAbilityEnabled = true;
             }
 
             // wait x amount of time
@@ -91,7 +91,7 @@ public class TowerManager : MonoBehaviour
             // disable isDamageAbilityEnable to false
             foreach (GameObject tower in towers)
             {
-                tower.GetComponent<TowerData>().isBoostAbilityEnabled = false;
+                tower.GetComponent<BaseTowerController>().towerData.isBoostAbilityEnabled = false;
             }
 
             // re enables btn

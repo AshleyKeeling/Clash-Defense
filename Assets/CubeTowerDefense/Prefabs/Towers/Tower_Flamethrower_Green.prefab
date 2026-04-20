@@ -168,9 +168,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 795927056642217014, guid: 4682a988b9906ca438d30dc36213dd4a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3895782751672862408}
-    - targetCorrespondingSourceObject: {fileID: 795927056642217014, guid: 4682a988b9906ca438d30dc36213dd4a, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1369999167435540233}
   m_SourcePrefab: {fileID: 100100000, guid: 4682a988b9906ca438d30dc36213dd4a, type: 3}
 --- !u!4 &7578144784311009484 stripped
 Transform:
@@ -196,25 +193,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   gunObj: {fileID: 7578144784311009484}
   shootEffect: {fileID: 8811475076766731992}
+  towerData: {fileID: 11400000, guid: c45fc0e1e6d7d4bb0939b9cf6e9664ce, type: 2}
   flameEffectRaduis: 1
---- !u!114 &1369999167435540233
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8132710756109802583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e10cf607181ce4a39a25a4b39131294e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TowerData
-  buildCost: 95
-  viewRadius: 4
-  fireRate: 0.18
-  bulletDamage: 6
-  canFire: 1
-  abilityFireRate: 0.14
-  abilityBulletDamage: 8
-  isBoostAbilityEnabled: 0
-  isDamageAbilityEnabled: 0

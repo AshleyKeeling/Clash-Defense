@@ -5,12 +5,12 @@ public class BaseTowerController : MonoBehaviour
 {
     public Transform gunObj;
     public ParticleSystem shootEffect;
-    protected TowerData towerData;
+    public TowerDataScriptableObject towerData;
 
 
     void Start()
     {
-        towerData = GetComponent<TowerData>();
+        // towerData = GetComponent<TowerData>();
         shootEffect.Stop();
     }
 

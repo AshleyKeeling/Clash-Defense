@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 10508875}
   - component: {fileID: 10508874}
   m_Layer: 5
-  m_Name: tower 1
+  m_Name: image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 0f8733fd6ec454ee4a98c4806f14091f, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2678,7 +2678,7 @@ GameObject:
   - component: {fileID: 228078356}
   - component: {fileID: 228078355}
   m_Layer: 5
-  m_Name: tower 1
+  m_Name: image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2723,7 +2723,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: dc913df1818f1423485c38568cd09c16, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3921,6 +3921,7 @@ GameObject:
   - component: {fileID: 321427863}
   - component: {fileID: 321427865}
   - component: {fileID: 321427864}
+  - component: {fileID: 321427866}
   m_Layer: 5
   m_Name: RPGTowerGreen
   m_TagString: Untagged
@@ -3990,6 +3991,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &321427866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 321427862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb493c53ce1d44a029855f66de6ca803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerDataDisplay
+  towerData: {fileID: 11400000, guid: 5ec8f1a85807b4a999fbbc387c04223c, type: 2}
 --- !u!4 &321814493 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5128388706308753554, guid: 86b451dd98deff545b5db59afa384e00, type: 3}
@@ -4502,7 +4516,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u20A150"
+  m_text: 00676
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90ebca11219e34acc8f835778636fa3f, type: 2}
   m_sharedMaterial: {fileID: 3166620010882519835, guid: 90ebca11219e34acc8f835778636fa3f, type: 2}
@@ -6214,7 +6228,7 @@ GameObject:
   - component: {fileID: 492855978}
   - component: {fileID: 492855977}
   m_Layer: 5
-  m_Name: tower 1
+  m_Name: image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6259,7 +6273,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3ee5ab103de974419bd318039a776d14, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7079,6 +7093,7 @@ GameObject:
   - component: {fileID: 571450855}
   - component: {fileID: 571450856}
   - component: {fileID: 571450857}
+  - component: {fileID: 571450858}
   m_Layer: 5
   m_Name: MiniGunBlueButton
   m_TagString: Untagged
@@ -7148,6 +7163,19 @@ MonoBehaviour:
     m_Bits: 72
   validColor: {r: 1, g: 1, b: 1, a: 1}
   invalidColor: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &571450858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571450854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb493c53ce1d44a029855f66de6ca803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerDataDisplay
+  towerData: {fileID: 11400000, guid: cb1236e9f242b42c98e793836d22510f, type: 2}
 --- !u!1001 &572017865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8583,7 +8611,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685013789}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -9129,7 +9157,7 @@ GameObject:
   - component: {fileID: 716887100}
   - component: {fileID: 716887099}
   m_Layer: 5
-  m_Name: Image
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10284,7 +10312,7 @@ GameObject:
   - component: {fileID: 813900130}
   - component: {fileID: 813900129}
   m_Layer: 5
-  m_Name: Image
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10716,7 +10744,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856422712}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -12461,6 +12489,7 @@ GameObject:
   - component: {fileID: 1006158076}
   - component: {fileID: 1006158078}
   - component: {fileID: 1006158077}
+  - component: {fileID: 1006158079}
   m_Layer: 5
   m_Name: FlameTowerBlue
   m_TagString: Untagged
@@ -12530,6 +12559,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1006158079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006158075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb493c53ce1d44a029855f66de6ca803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerDataDisplay
+  towerData: {fileID: 11400000, guid: 2ed627e1c03f44bd3a0e15f2fce44ad9, type: 2}
 --- !u!1001 &1015163575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12598,6 +12640,7 @@ GameObject:
   - component: {fileID: 1015592101}
   - component: {fileID: 1015592103}
   - component: {fileID: 1015592102}
+  - component: {fileID: 1015592104}
   m_Layer: 5
   m_Name: FlameTowerGreen
   m_TagString: Untagged
@@ -12667,6 +12710,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1015592104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015592100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb493c53ce1d44a029855f66de6ca803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerDataDisplay
+  towerData: {fileID: 11400000, guid: c45fc0e1e6d7d4bb0939b9cf6e9664ce, type: 2}
 --- !u!1001 &1019024132
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13199,7 +13255,7 @@ GameObject:
   - component: {fileID: 1092943219}
   - component: {fileID: 1092943218}
   m_Layer: 5
-  m_Name: Image
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13910,6 +13966,7 @@ GameObject:
   - component: {fileID: 1143370114}
   - component: {fileID: 1143370116}
   - component: {fileID: 1143370115}
+  - component: {fileID: 1143370117}
   m_Layer: 5
   m_Name: RPGTowerBlue
   m_TagString: Untagged
@@ -13979,6 +14036,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1143370117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1143370113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb493c53ce1d44a029855f66de6ca803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerDataDisplay
+  towerData: {fileID: 11400000, guid: 28e7f41bac52e4e4d9f12d8be2ae051b, type: 2}
 --- !u!1001 &1144060762
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14765,7 +14835,7 @@ GameObject:
   - component: {fileID: 1188430092}
   - component: {fileID: 1188430091}
   m_Layer: 5
-  m_Name: Image
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16172,6 +16242,7 @@ GameObject:
   - component: {fileID: 1266801612}
   - component: {fileID: 1266801614}
   - component: {fileID: 1266801613}
+  - component: {fileID: 1266801615}
   m_Layer: 5
   m_Name: RPGTowerRed
   m_TagString: Untagged
@@ -16241,6 +16312,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1266801615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1266801611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb493c53ce1d44a029855f66de6ca803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerDataDisplay
+  towerData: {fileID: 11400000, guid: 5029dc183f34c47bdaf7847de717fb16, type: 2}
 --- !u!1001 &1267745954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16617,7 +16701,7 @@ GameObject:
   - component: {fileID: 1334423485}
   - component: {fileID: 1334423484}
   m_Layer: 5
-  m_Name: tower 1
+  m_Name: image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16662,7 +16746,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 46f404b540d0b4d44bf3035c7f66719e, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -18674,7 +18758,7 @@ GameObject:
   - component: {fileID: 1509904114}
   - component: {fileID: 1509904113}
   m_Layer: 5
-  m_Name: tower 1
+  m_Name: image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18719,7 +18803,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 324aa1fb695764c6b816d5e3b7a735bc, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -19327,7 +19411,7 @@ GameObject:
   - component: {fileID: 1548644536}
   - component: {fileID: 1548644535}
   m_Layer: 5
-  m_Name: tower 1
+  m_Name: image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19372,7 +19456,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 37ddcade66c7e4ddf81451a356ac9424, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21212,7 +21296,7 @@ GameObject:
   - component: {fileID: 1662726743}
   - component: {fileID: 1662726742}
   m_Layer: 5
-  m_Name: Image
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21362,7 +21446,7 @@ GameObject:
   - component: {fileID: 1670545961}
   - component: {fileID: 1670545960}
   m_Layer: 5
-  m_Name: Image
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22131,6 +22215,7 @@ GameObject:
   - component: {fileID: 1727429317}
   - component: {fileID: 1727429319}
   - component: {fileID: 1727429318}
+  - component: {fileID: 1727429320}
   m_Layer: 5
   m_Name: FlameTowerRed
   m_TagString: Untagged
@@ -22200,6 +22285,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1727429320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1727429316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb493c53ce1d44a029855f66de6ca803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerDataDisplay
+  towerData: {fileID: 11400000, guid: 1d4af965bf66142a99dd0aba8f4b0826, type: 2}
 --- !u!1001 &1738335638
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23502,6 +23600,7 @@ GameObject:
   - component: {fileID: 1849751098}
   - component: {fileID: 1849751100}
   - component: {fileID: 1849751099}
+  - component: {fileID: 1849751101}
   m_Layer: 5
   m_Name: MiniGunRed
   m_TagString: Untagged
@@ -23571,6 +23670,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1849751101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849751097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb493c53ce1d44a029855f66de6ca803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerDataDisplay
+  towerData: {fileID: 11400000, guid: 9f2c0061a11274270a445eb37bdeda32, type: 2}
 --- !u!1 &1856345281
 GameObject:
   m_ObjectHideFlags: 0
@@ -24525,7 +24637,7 @@ GameObject:
   - component: {fileID: 1892359998}
   - component: {fileID: 1892359997}
   m_Layer: 5
-  m_Name: tower 1
+  m_Name: image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24570,7 +24682,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 21e55913bc52640d193958e4e66c2b5a, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -25289,7 +25401,7 @@ GameObject:
   - component: {fileID: 1947453887}
   - component: {fileID: 1947453886}
   m_Layer: 5
-  m_Name: Image
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25364,7 +25476,7 @@ GameObject:
   - component: {fileID: 1954131999}
   - component: {fileID: 1954131998}
   m_Layer: 5
-  m_Name: Image
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25855,6 +25967,7 @@ GameObject:
   - component: {fileID: 1980704087}
   - component: {fileID: 1980704089}
   - component: {fileID: 1980704088}
+  - component: {fileID: 1980704090}
   m_Layer: 5
   m_Name: MiniGunGreenButton
   m_TagString: Untagged
@@ -25924,6 +26037,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &1980704090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980704086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb493c53ce1d44a029855f66de6ca803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerDataDisplay
+  towerData: {fileID: 11400000, guid: 88fb3c61ddaa645209d647836b3fa927, type: 2}
 --- !u!1001 &1983319774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26788,7 +26914,7 @@ GameObject:
   - component: {fileID: 2062560879}
   - component: {fileID: 2062560878}
   m_Layer: 5
-  m_Name: Image
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27062,7 +27188,7 @@ GameObject:
   - component: {fileID: 2073326790}
   - component: {fileID: 2073326789}
   m_Layer: 5
-  m_Name: tower 1
+  m_Name: image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27107,7 +27233,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5131449f0793b4fcab3a1b67183794e4, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -27705,7 +27831,7 @@ GameObject:
   - component: {fileID: 2144792765}
   - component: {fileID: 2144792764}
   m_Layer: 5
-  m_Name: tower 1
+  m_Name: image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27750,7 +27876,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e9ae3b4cc3a0e49f5883574d6ea9126a, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

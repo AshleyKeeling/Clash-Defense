@@ -67,10 +67,10 @@ public class TowerDragUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         CurrencyManager currencyManager = FindObjectOfType<CurrencyManager>();
 
 
-        if (validArea && currencyManager.CanPlayerAfford(towerInstance.GetComponent<TowerData>().buildCost))
+        if (validArea && currencyManager.CanPlayerAfford(towerInstance.GetComponent<BaseTowerController>().towerData.buildCost))
         {
             // removes tower cost from player credit balance
-            currencyManager.SubtractCredits(towerInstance.GetComponent<TowerData>().buildCost);
+            currencyManager.SubtractCredits(towerInstance.GetComponent<BaseTowerController>().towerData.buildCost);
 
             // adds tower to tower manager
             towerManager.AddTower(towerInstance);

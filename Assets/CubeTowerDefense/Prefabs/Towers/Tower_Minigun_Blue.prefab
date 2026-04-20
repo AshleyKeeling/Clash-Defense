@@ -117,8 +117,9 @@ PrefabInstance:
       value: Tower_Minigun_Blue
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 2811046595606281054, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+    - {fileID: 0}
     - {fileID: 6433101400211953539, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+    - {fileID: -7167649597167265673, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -155,3 +156,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BaseTowerController
   gunObj: {fileID: 3554057276713832704}
   shootEffect: {fileID: 2535157444691178480}
+  towerData: {fileID: 11400000, guid: cb1236e9f242b42c98e793836d22510f, type: 2}
