@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 19a0dc857b3974c4f989dc7a207c7fad
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246903
+  packageName: Cube Tower Defense
+  packageVersion: 1.1
+  assetPath: Assets/CubeTowerDefense/Materials/Minigun_Red.mat
+  uploadId: 593622

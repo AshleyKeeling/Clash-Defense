@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: be7d012883511e7499e835a44737958d
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246903
+  packageName: Cube Tower Defense
+  packageVersion: 1.1
+  assetPath: Assets/CubeTowerDefense/Materials/RPG_Red.mat
+  uploadId: 593622

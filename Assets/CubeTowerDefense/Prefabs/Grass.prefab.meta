@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 86b451dd98deff545b5db59afa384e00
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246903
+  packageName: Cube Tower Defense
+  packageVersion: 1.1
+  assetPath: Assets/CubeTowerDefense/Prefabs/Grass.prefab
+  uploadId: 593622

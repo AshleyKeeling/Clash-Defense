@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 9b64eb96612063a438f8423b963ace41
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246903
+  packageName: Cube Tower Defense
+  packageVersion: 1.1
+  assetPath: Assets/CubeTowerDefense/Materials/Minigun_Blue.mat
+  uploadId: 593622

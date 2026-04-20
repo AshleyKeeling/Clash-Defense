@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 418d0ae18d89bf946a74078c66775143
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246903
+  packageName: Cube Tower Defense
+  packageVersion: 1.1
+  assetPath: Assets/CubeTowerDefense/Prefabs/TanksSpawn_metal.prefab
+  uploadId: 593622

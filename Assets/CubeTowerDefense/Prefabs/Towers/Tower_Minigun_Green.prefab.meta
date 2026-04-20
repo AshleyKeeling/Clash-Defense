@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: a4fc9a43359aab04aac672bd8c64824f
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246903
+  packageName: Cube Tower Defense
+  packageVersion: 1.1
+  assetPath: Assets/CubeTowerDefense/Prefabs/Towers/Tower_Minigun_Green.prefab
+  uploadId: 593622

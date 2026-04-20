@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7c660fb9d8266f44488cf92891bf3a7c
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246903
+  packageName: Cube Tower Defense
+  packageVersion: 1.1
+  assetPath: Assets/CubeTowerDefense/Prefabs/Towers/Tower_RPG_Blue.prefab
+  uploadId: 593622

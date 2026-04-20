@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: ad479c9914c6e514a85d8a3ff2c29136
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246903
+  packageName: Cube Tower Defense
+  packageVersion: 1.1
+  assetPath: Assets/CubeTowerDefense/Prefabs/CannonFireFX.prefab
+  uploadId: 593622

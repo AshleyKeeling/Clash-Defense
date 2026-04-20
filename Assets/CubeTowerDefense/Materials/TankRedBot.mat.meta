@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fb9e9f2639820e3478c3f74a84513176
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246903
+  packageName: Cube Tower Defense
+  packageVersion: 1.1
+  assetPath: Assets/CubeTowerDefense/Materials/TankRedBot.mat
+  uploadId: 593622

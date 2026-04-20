@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 7fbcae8c53c9bb94d883c6fccbe08c0b
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246903
+  packageName: Cube Tower Defense
+  packageVersion: 1.1
+  assetPath: Assets/CubeTowerDefense/Prefabs/Towers/Tower_Flamethrower_Blue.prefab
+  uploadId: 593622

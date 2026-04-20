@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 313128a72a754174bb2965bf177a85de
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246903
+  packageName: Cube Tower Defense
+  packageVersion: 1.1
+  assetPath: Assets/CubeTowerDefense/Prefabs/ExplosionFX.prefab
+  uploadId: 593622

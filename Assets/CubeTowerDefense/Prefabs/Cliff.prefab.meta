@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 402c765906f14f840bff43a7a226a269
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246903
+  packageName: Cube Tower Defense
+  packageVersion: 1.1
+  assetPath: Assets/CubeTowerDefense/Prefabs/Cliff.prefab
+  uploadId: 593622

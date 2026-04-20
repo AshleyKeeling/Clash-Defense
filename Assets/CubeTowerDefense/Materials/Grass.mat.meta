@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: d447fb6253a0f8c4aa2d7549eb4003f6
+timeCreated: 1522603695
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246903
+  packageName: Cube Tower Defense
+  packageVersion: 1.1
+  assetPath: Assets/CubeTowerDefense/Materials/Grass.mat
+  uploadId: 593622

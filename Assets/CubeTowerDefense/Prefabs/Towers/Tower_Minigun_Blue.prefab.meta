@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: fb9592df268d11044a5018ff99a9e34b
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246903
+  packageName: Cube Tower Defense
+  packageVersion: 1.1
+  assetPath: Assets/CubeTowerDefense/Prefabs/Towers/Tower_Minigun_Blue.prefab
+  uploadId: 593622

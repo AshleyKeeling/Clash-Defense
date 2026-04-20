@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &567644242906264660
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 11432384513123407, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fea1e717b816b457db15ef6281123036, type: 2}
+    - target: {fileID: 2238275623762360114, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fea1e717b816b457db15ef6281123036, type: 2}
+    - target: {fileID: 2631984086347010008, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fea1e717b816b457db15ef6281123036, type: 2}
+    - target: {fileID: 2811046595606281054, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: miniGunObj
+      value: 
+      objectReference: {fileID: 3554057276713832704}
+    - target: {fileID: 2811046595606281054, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: viewRadius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2811046595606281054, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: muzzleEffect
+      value: 
+      objectReference: {fileID: 2535157444691178480}
+    - target: {fileID: 3768892679609496865, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fea1e717b816b457db15ef6281123036, type: 2}
+    - target: {fileID: 4425229670157353310, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7355248616878556692, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7355248616878556692, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.9999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7355248616878556692, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.0013158
+      objectReference: {fileID: 0}
+    - target: {fileID: 7355248616878556692, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5.9228334
+      objectReference: {fileID: 0}
+    - target: {fileID: 7355248616878556692, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7355248616878556692, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7355248616878556692, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7355248616878556692, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7355248616878556692, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7355248616878556692, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7355248616878556692, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7355248616878556693, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: m_Name
+      value: Ghost_Tower_Minigun
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+--- !u!198 &2535157444691178480 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2652089313666795428, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+  m_PrefabInstance: {fileID: 567644242906264660}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3554057276713832704 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3941249101610526036, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+  m_PrefabInstance: {fileID: 567644242906264660}
+  m_PrefabAsset: {fileID: 0}

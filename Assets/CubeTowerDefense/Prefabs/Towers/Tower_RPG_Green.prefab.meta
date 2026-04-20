@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6b52389f0b3a96b42af50f06ee88d8cc
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246903
+  packageName: Cube Tower Defense
+  packageVersion: 1.1
+  assetPath: Assets/CubeTowerDefense/Prefabs/Towers/Tower_RPG_Green.prefab
+  uploadId: 593622

@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 8495c68db8f540a4faf6584d1f80676d
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 246903
+  packageName: Cube Tower Defense
+  packageVersion: 1.1
+  assetPath: Assets/CubeTowerDefense/Prefabs/BaseRed.prefab
+  uploadId: 593622
