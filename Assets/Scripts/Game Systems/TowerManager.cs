@@ -4,12 +4,9 @@ using System.Collections.Generic;
 
 public class TowerManager : MonoBehaviour
 {
-
-    public float abilityDuration = 10f;
-    public int DamageAbilityCost = 50;
-    public int BoostAbilityCost = 60;
+    public AbilitySciptableObject DamageAbilityData;
+    public AbilitySciptableObject BoostAbilityData;
     public List<GameObject> towers;
-
     private UIManager uIManager;
     private CurrencyManager currencyManager;
 
@@ -39,10 +36,10 @@ public class TowerManager : MonoBehaviour
     protected virtual IEnumerator DamageAbility()
     {
         // check if player can afford first
-        if (currencyManager.CanPlayerAfford(DamageAbilityCost))
+        if (currencyManager.CanPlayerAfford(DamageAbilityData.cost))
         {
             // subtract currency
-            currencyManager.SubtractCredits(DamageAbilityCost);
+            currencyManager.SubtractCredits(DamageAbilityData.cost);
 
             // disable btn to avoid being double clicked
             uIManager.SetDamageButtonState(false);
@@ -54,7 +51,7 @@ public class TowerManager : MonoBehaviour
             }
 
             // wait x amount of time
-            yield return new WaitForSeconds(abilityDuration);
+            yield return new WaitForSeconds(DamageAbilityData.duration);
 
             // disable isDamageAbilityEnable to false
             foreach (GameObject tower in towers)
@@ -71,10 +68,10 @@ public class TowerManager : MonoBehaviour
     protected virtual IEnumerator BoostAbility()
     {
         // check if player can afford first
-        if (currencyManager.CanPlayerAfford(BoostAbilityCost))
+        if (currencyManager.CanPlayerAfford(BoostAbilityData.cost))
         {
             // subtract currency
-            currencyManager.SubtractCredits(BoostAbilityCost);
+            currencyManager.SubtractCredits(BoostAbilityData.cost);
 
             // disable btn to avoid being double clicked
             uIManager.SetBoostButtonState(false);
@@ -86,7 +83,7 @@ public class TowerManager : MonoBehaviour
             }
 
             // wait x amount of time
-            yield return new WaitForSeconds(abilityDuration);
+            yield return new WaitForSeconds(BoostAbilityData.duration);
 
             // disable isDamageAbilityEnable to false
             foreach (GameObject tower in towers)

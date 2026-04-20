@@ -1470,6 +1470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 150085812}
   - component: {fileID: 150085813}
+  - component: {fileID: 150085814}
   m_Layer: 5
   m_Name: Freeze Button
   m_TagString: Untagged
@@ -1556,6 +1557,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &150085814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150085811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25ef717167bf04978b8dd4ce18e83c46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityDataDisplay
+  abilityData: {fileID: 11400000, guid: 391aad49e41f0436e83180f6e4f5055e, type: 2}
 --- !u!1001 &160909823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1898,7 +1912,7 @@ GameObject:
   - component: {fileID: 194730455}
   - component: {fileID: 194730454}
   m_Layer: 5
-  m_Name: label
+  m_Name: name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3104,7 +3118,7 @@ GameObject:
   - component: {fileID: 264400388}
   - component: {fileID: 264400387}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6017,7 +6031,7 @@ GameObject:
   - component: {fileID: 476707847}
   - component: {fileID: 476707846}
   m_Layer: 5
-  m_Name: label
+  m_Name: name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8611,7 +8625,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685013789}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -10012,6 +10026,7 @@ GameObject:
   m_Component:
   - component: {fileID: 777363245}
   - component: {fileID: 777363246}
+  - component: {fileID: 777363247}
   m_Layer: 5
   m_Name: Boost Button
   m_TagString: Untagged
@@ -10098,6 +10113,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &777363247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777363244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25ef717167bf04978b8dd4ce18e83c46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityDataDisplay
+  abilityData: {fileID: 11400000, guid: 2db12864d75b049539f53d13e2e98c31, type: 2}
 --- !u!1001 &784160385
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10744,7 +10772,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856422712}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -14742,9 +14770,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4a533a69a41c47d5b9d8f5499064cfe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerManager
-  abilityDuration: 10
-  DamageAbilityCost: 50
-  BoostAbilityCost: 60
+  DamageAbilityData: {fileID: 11400000, guid: 35bc0841d85e045f6a5f6fa7254b1cb7, type: 2}
+  BoostAbilityData: {fileID: 11400000, guid: 2db12864d75b049539f53d13e2e98c31, type: 2}
   towers: []
 --- !u!114 &1187590341
 MonoBehaviour:
@@ -14759,8 +14786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyManager
   enemies: []
-  abilityDuration: 10
-  FreezeAbilityCost: 50
+  FreezeAbilityData: {fileID: 11400000, guid: 391aad49e41f0436e83180f6e4f5055e, type: 2}
 --- !u!1001 &1188429937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15224,7 +15250,7 @@ GameObject:
   - component: {fileID: 1217320635}
   - component: {fileID: 1217320634}
   m_Layer: 5
-  m_Name: Image
+  m_Name: image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15785,7 +15811,7 @@ GameObject:
   - component: {fileID: 1239381370}
   - component: {fileID: 1239381369}
   m_Layer: 5
-  m_Name: Image
+  m_Name: image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17477,7 +17503,7 @@ GameObject:
   - component: {fileID: 1409897148}
   - component: {fileID: 1409897147}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17807,7 +17833,7 @@ GameObject:
   - component: {fileID: 1445399473}
   - component: {fileID: 1445399472}
   m_Layer: 5
-  m_Name: label
+  m_Name: name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18081,7 +18107,7 @@ GameObject:
   - component: {fileID: 1452370397}
   - component: {fileID: 1452370396}
   m_Layer: 5
-  m_Name: Image
+  m_Name: image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21982,6 +22008,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1724903811}
   - component: {fileID: 1724903812}
+  - component: {fileID: 1724903813}
   m_Layer: 5
   m_Name: Damage Button
   m_TagString: Untagged
@@ -22068,6 +22095,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1724903813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1724903810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25ef717167bf04978b8dd4ce18e83c46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityDataDisplay
+  abilityData: {fileID: 11400000, guid: 35bc0841d85e045f6a5f6fa7254b1cb7, type: 2}
 --- !u!1 &1725173144
 GameObject:
   m_ObjectHideFlags: 0
@@ -25269,7 +25309,7 @@ GameObject:
   - component: {fileID: 1943533368}
   - component: {fileID: 1943533367}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

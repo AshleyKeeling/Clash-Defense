@@ -5,8 +5,7 @@ using System.Collections.Generic;
 public class EnemyManager : MonoBehaviour
 {
     public List<GameObject> enemies;
-    public float abilityDuration = 10f;
-    public int FreezeAbilityCost = 50;
+    public AbilitySciptableObject FreezeAbilityData;
     private UIManager uIManager;
     private CurrencyManager currencyManager;
 
@@ -35,10 +34,10 @@ public class EnemyManager : MonoBehaviour
     protected virtual IEnumerator FreezeAbility()
     {
         // check if player can afford first
-        if (currencyManager.CanPlayerAfford(FreezeAbilityCost))
+        if (currencyManager.CanPlayerAfford(FreezeAbilityData.cost))
         {
             // subtract currency
-            currencyManager.SubtractCredits(FreezeAbilityCost);
+            currencyManager.SubtractCredits(FreezeAbilityData.cost);
 
             // disable btn to avoid being double clicked
             uIManager.SetFreezeButtonState(false);
@@ -50,7 +49,7 @@ public class EnemyManager : MonoBehaviour
             }
 
             // wait x amount of time
-            yield return new WaitForSeconds(abilityDuration);
+            yield return new WaitForSeconds(FreezeAbilityData.duration);
 
             // disable isFreezeAbilityEnable to false
             foreach (GameObject enemy in enemies)
