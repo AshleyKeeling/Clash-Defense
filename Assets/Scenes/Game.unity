@@ -14609,6 +14609,10 @@ MonoBehaviour:
   moveInput: {x: 0, y: 0}
   zoomInput: {x: 0, y: 0}
   CameraMovementSpeed: 5
+  MinXBound: -10
+  MaxXBound: -5
+  MinZBound: -8
+  MaxZBound: 10
   ZoomSpeed: 2
   ZoomInBound: 1
   ZoomOutBound: 10

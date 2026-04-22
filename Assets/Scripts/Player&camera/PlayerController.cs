@@ -8,7 +8,14 @@ public class PlayerController : MonoBehaviour
     private GameManager gameManager;
     [HideInInspector] public Vector2 moveInput;
     [HideInInspector] public Vector2 zoomInput;
+
+    [Header("Camera Movement")]
     public float CameraMovementSpeed = 3f;
+    public float MinXBound;
+    public float MaxXBound;
+    public float MinZBound;
+    public float MaxZBound;
+    [Header("Zoom Movement")]
     public float ZoomSpeed = 2f;
     public float ZoomInBound = 1f;
     public float ZoomOutBound = 10f;
@@ -73,10 +80,16 @@ public class PlayerController : MonoBehaviour
 
         forward.Normalize();
         right.Normalize();
-
         Vector3 move = forward * moveInput.y + right * moveInput.x;
-        camera.transform.position += move * CameraMovementSpeed * Time.unscaledDeltaTime;
 
+        Vector3 pos = camera.transform.position;
+
+        pos += move * CameraMovementSpeed * Time.unscaledDeltaTime;
+
+        pos.x = Mathf.Clamp(pos.x, MinXBound, MaxXBound);
+        pos.z = Mathf.Clamp(pos.z, MinZBound, MaxZBound);
+
+        camera.transform.position = pos;
     }
 
     private void HandleZoom()
