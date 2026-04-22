@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public EnemyWaveSystem enemyWaveSystem;
     public UIManager uIManager;
     public bool IsPaused;
+    private bool IsGameOver;
 
     private void Start()
     {
@@ -13,11 +14,14 @@ public class GameManager : MonoBehaviour
         uIManager = FindObjectOfType<UIManager>();
         uIManager.StartGameUISetup();
         IsPaused = false;
+        IsGameOver = false;
         Time.timeScale = 1f;
     }
     // Game Over
     public void GameOver()
     {
+        IsGameOver = true;
+
         Debug.Log("Game Over!!!!");
 
         // disable game systems
@@ -29,13 +33,16 @@ public class GameManager : MonoBehaviour
 
     public void PauseGame()
     {
-        IsPaused = true;
+        if (!IsGameOver)
+        {
+            IsPaused = true;
 
-        // switches to pause menu UI
-        uIManager.EnablePauseMenuUI();
+            // switches to pause menu UI
+            uIManager.EnablePauseMenuUI();
 
-        // pauses time
-        Time.timeScale = 0f;
+            // pauses time
+            Time.timeScale = 0f;
+        }
     }
 
     public void ResumeGame()
