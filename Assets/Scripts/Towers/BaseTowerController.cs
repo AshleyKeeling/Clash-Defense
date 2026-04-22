@@ -6,10 +6,10 @@ public class BaseTowerController : MonoBehaviour
     public Transform gunObj;
     public ParticleSystem shootEffect;
     public TowerDataScriptableObject towerData;
-
-
+    public AudioSource audioSource;
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         // towerData = GetComponent<TowerData>();
         shootEffect.Stop();
     }
@@ -82,6 +82,10 @@ public class BaseTowerController : MonoBehaviour
         towerData.canFire = true;
     }
 
+    public void PlayTowerPlacementSFX()
+    {
+        audioSource.PlayOneShot(towerData.towerPlacementSFX);
+    }
 
     // -----------------------------------------------
     // Gizmos for debugging vision

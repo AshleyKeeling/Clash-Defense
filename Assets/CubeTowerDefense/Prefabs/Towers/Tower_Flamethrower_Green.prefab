@@ -194,4 +194,5 @@ MonoBehaviour:
   gunObj: {fileID: 7578144784311009484}
   shootEffect: {fileID: 8811475076766731992}
   towerData: {fileID: 11400000, guid: c45fc0e1e6d7d4bb0939b9cf6e9664ce, type: 2}
+  audioSource: {fileID: 0}
   flameEffectRaduis: 1

@@ -24,3 +24,5 @@ MonoBehaviour:
   abilityBulletDamage: 6
   isBoostAbilityEnabled: 0
   isDamageAbilityEnabled: 0
+  towerPlacementSFX: {fileID: 8300000, guid: 651c6380247954be3a857867a5f6ddb4, type: 3}
+  ShootSFX: {fileID: 0}

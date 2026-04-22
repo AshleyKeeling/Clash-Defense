@@ -98,6 +98,8 @@ public class TowerDragUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             // adds tower to tower manager
             towerManager.AddTower(towerInstance);
 
+            // plays SFX
+            towerInstance.GetComponent<BaseTowerController>().PlayTowerPlacementSFX();
             // places tower
             towerInstance = null;
             return;

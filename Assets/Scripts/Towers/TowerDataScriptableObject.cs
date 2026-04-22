@@ -20,4 +20,7 @@ public class TowerDataScriptableObject : ScriptableObject
     public float abilityBulletDamage = 1f;
     public bool isBoostAbilityEnabled = false;
     public bool isDamageAbilityEnabled = false;
+    [Header("SFX Settings")]
+    public AudioClip towerPlacementSFX;
+    public AudioClip ShootSFX;
 }
