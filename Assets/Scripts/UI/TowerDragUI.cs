@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class TowerDragUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    public InputActionReference cancelAction;
     [Header("Prefabs")]
     public GameObject towerPrefab;
 
@@ -21,8 +22,29 @@ public class TowerDragUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void Start()
     {
+        // inputActions = new InputSystem_Actions();
         towerManager = FindObjectOfType<TowerManager>();
     }
+
+    private void Update()
+    {
+        if (cancelAction.action.triggered)
+        {
+            Destroy(towerInstance);
+            return;
+        }
+    }
+
+    private void OnEnable()
+    {
+        cancelAction.action.Enable();
+    }
+
+    private void OnDisable()
+    {
+        cancelAction.action.Disable();
+    }
+
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -60,6 +82,7 @@ public class TowerDragUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (towerInstance == null || Camera.main == null || Mouse.current == null) return;
 
         bool validArea = IsOnValidArea();
 

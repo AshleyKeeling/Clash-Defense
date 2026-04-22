@@ -3979,6 +3979,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 066f12e65f26d4b70979ce59df6d597b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerDragUI
+  cancelAction: {fileID: -166913807519878589, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   towerPrefab: {fileID: 2528987805884615919, guid: 6b52389f0b3a96b42af50f06ee88d8cc, type: 3}
   placementMask:
     serializedVersion: 2
@@ -7171,6 +7172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 066f12e65f26d4b70979ce59df6d597b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerDragUI
+  cancelAction: {fileID: -166913807519878589, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   towerPrefab: {fileID: 7058190425324253761, guid: fb9592df268d11044a5018ff99a9e34b, type: 3}
   placementMask:
     serializedVersion: 2
@@ -12561,6 +12563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 066f12e65f26d4b70979ce59df6d597b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerDragUI
+  cancelAction: {fileID: -166913807519878589, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   towerPrefab: {fileID: 8132710756109802583, guid: 7fbcae8c53c9bb94d883c6fccbe08c0b, type: 3}
   placementMask:
     serializedVersion: 2
@@ -12712,6 +12715,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 066f12e65f26d4b70979ce59df6d597b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerDragUI
+  cancelAction: {fileID: -166913807519878589, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   towerPrefab: {fileID: 8132710756109802583, guid: 6bc75ad498cdf7a408cb65566d0221c1, type: 3}
   placementMask:
     serializedVersion: 2
@@ -14038,6 +14042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 066f12e65f26d4b70979ce59df6d597b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerDragUI
+  cancelAction: {fileID: -166913807519878589, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   towerPrefab: {fileID: 3802618639411804532, guid: 7c660fb9d8266f44488cf92891bf3a7c, type: 3}
   placementMask:
     serializedVersion: 2
@@ -14753,6 +14758,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 5543b3c4-7091-4378-8dcc-4523975f3ef7
     m_ActionName: 'Player/Zoom[/Mouse/scroll]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9156e48f-36e6-4c3c-8b2f-cfe93d3be0fe
+    m_ActionName: 'Player/Cancel[/Mouse/rightButton]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
@@ -16312,6 +16333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 066f12e65f26d4b70979ce59df6d597b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerDragUI
+  cancelAction: {fileID: -166913807519878589, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   towerPrefab: {fileID: 2528987805884615919, guid: 61791533946a2064c8b746bace6ffc11, type: 3}
   placementMask:
     serializedVersion: 2
@@ -22299,6 +22321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 066f12e65f26d4b70979ce59df6d597b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerDragUI
+  cancelAction: {fileID: -166913807519878589, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   towerPrefab: {fileID: 795927056642217014, guid: 4682a988b9906ca438d30dc36213dd4a, type: 3}
   placementMask:
     serializedVersion: 2
@@ -23684,6 +23707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 066f12e65f26d4b70979ce59df6d597b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerDragUI
+  cancelAction: {fileID: -166913807519878589, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   towerPrefab: {fileID: 7058190425324253761, guid: d543361556e7a0140ae4414eea87e78b, type: 3}
   placementMask:
     serializedVersion: 2
@@ -26051,6 +26075,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 066f12e65f26d4b70979ce59df6d597b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerDragUI
+  cancelAction: {fileID: -166913807519878589, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   towerPrefab: {fileID: 7355248616878556693, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
   placementMask:
     serializedVersion: 2
