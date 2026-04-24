@@ -18,10 +18,10 @@ MonoBehaviour:
   viewRadius: 3.5
   towerImg: {fileID: 21300000, guid: 5131449f0793b4fcab3a1b67183794e4, type: 3}
   fireRate: 1
-  bulletDamage: 0.15
-  abilityFireRate: 5
-  abilityBulletDamage: 1
-  isBoostAbilityEnabled: 0
+  bulletDamage: 4
+  abilityFireRate: 0.9
+  abilityBulletDamage: 6
+  isBoostAbilityEnabled: 1
   isDamageAbilityEnabled: 0
   towerPlacementSFX: {fileID: 8300000, guid: f5e8759c9ca954cdaa669e66bba82f1f, type: 3}
-  ShootSFX: {fileID: 8300000, guid: 458f7bffc16b643979de3b6629a6986d, type: 3}
+  ShootSFX: {fileID: 8300000, guid: bd41da6131b204029a57562258a2599c, type: 3}

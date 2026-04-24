@@ -24,4 +24,4 @@ MonoBehaviour:
   isBoostAbilityEnabled: 0
   isDamageAbilityEnabled: 0
   towerPlacementSFX: {fileID: 8300000, guid: f5e8759c9ca954cdaa669e66bba82f1f, type: 3}
-  ShootSFX: {fileID: 0}
+  ShootSFX: {fileID: 8300000, guid: 34759ebdb59204eb58dbcb3c5cc9749d, type: 3}

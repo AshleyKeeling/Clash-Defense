@@ -17,11 +17,11 @@ MonoBehaviour:
   buildCost: 95
   viewRadius: 4
   towerImg: {fileID: 21300000, guid: e9ae3b4cc3a0e49f5883574d6ea9126a, type: 3}
-  fireRate: 0.18
+  fireRate: 0.9
   bulletDamage: 6
-  abilityFireRate: 0.14
+  abilityFireRate: 0.85
   abilityBulletDamage: 8
   isBoostAbilityEnabled: 0
   isDamageAbilityEnabled: 0
   towerPlacementSFX: {fileID: 8300000, guid: f5e8759c9ca954cdaa669e66bba82f1f, type: 3}
-  ShootSFX: {fileID: 8300000, guid: 458f7bffc16b643979de3b6629a6986d, type: 3}
+  ShootSFX: {fileID: 8300000, guid: bd41da6131b204029a57562258a2599c, type: 3}

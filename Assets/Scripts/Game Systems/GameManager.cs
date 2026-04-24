@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
     private bool IsGameOver;
     private AudioSource audioSource;
 
-
     private void Start()
     {
         enemyWaveSystem = FindObjectOfType<EnemyWaveSystem>();
