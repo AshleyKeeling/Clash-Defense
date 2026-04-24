@@ -7,7 +7,7 @@ public class RPGTowerController : BaseTowerController
     public float rocketSpeed;
     protected override IEnumerator Fire(GameObject target)
     {
-        towerData.canFire = false;
+        canFire = false;
         // creates rocket
         GameObject newRocket = Instantiate(rocket, gunObj.position, transform.rotation);
         newRocket.GetComponent<Rocket>().SetTargetAndData(target, rocketSpeed, Mathf.RoundToInt(towerData.bulletDamage));
@@ -17,7 +17,7 @@ public class RPGTowerController : BaseTowerController
         yield return new WaitForSeconds(towerData.fireRate);
 
         shootEffect.Stop();
-        towerData.canFire = true;
+        canFire = true;
     }
 
 

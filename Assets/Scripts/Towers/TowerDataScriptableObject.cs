@@ -13,7 +13,6 @@ public class TowerDataScriptableObject : ScriptableObject
     [Header("Gun Settings")]
     public float fireRate = 1f;
     public float bulletDamage = 1f;
-    public bool canFire = true;
 
     [Header("Ability Settings")]
     public float abilityFireRate = 1f;

@@ -1,11 +1,11 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+
 public class FlameThrowerTowerController : BaseTowerController
 {
     public float flameEffectRaduis = 1f;
 
-    //returns all enemies with in the flame effect raduis of the locked target
     private List<GameObject> GetAllEnimiesWithInFlameEffect(Transform lockedEnemy)
     {
         List<GameObject> enemiesWithInRange = new List<GameObject>();
@@ -22,27 +22,58 @@ public class FlameThrowerTowerController : BaseTowerController
             }
         }
 
-        // return list
         return enemiesWithInRange;
+    }
+
+    protected IEnumerator Fire(List<GameObject> targets)
+    {
+        canFire = false;
+
+        shootEffect.Play();
+        PlayShootSFX(true);
+
+        foreach (GameObject target in targets)
+        {
+            if (target == null) continue;
+
+            BaseEnemy enemy = target.GetComponent<BaseEnemy>();
+            if (enemy == null) continue;
+
+            if (towerData.isDamageAbilityEnabled)
+            {
+                enemy.TakeDamage(towerData.abilityBulletDamage);
+            }
+            else
+            {
+                enemy.TakeDamage(towerData.bulletDamage);
+            }
+        }
+
+        if (towerData.isBoostAbilityEnabled)
+        {
+            yield return new WaitForSeconds(towerData.abilityFireRate);
+        }
+        else
+        {
+            yield return new WaitForSeconds(towerData.fireRate);
+        }
+
+        shootEffect.Stop();
+        PlayShootSFX(false);
+        canFire = true;
     }
 
     protected override void Shoot(GameObject target)
     {
-        // aim at enemy
+
         Vector3 dir = target.transform.position - gunObj.position;
         Quaternion rot = Quaternion.LookRotation(dir);
         gunObj.rotation = Quaternion.Slerp(gunObj.rotation, rot, 10f * Time.deltaTime);
 
-        // find all enemies with flame effect raduis(splash damage)
-        List<GameObject> enmiesWithInRange = GetAllEnimiesWithInFlameEffect(target.transform);
-
-        // do damage to all of them
-        foreach (GameObject enemyInFlameEffect in enmiesWithInRange)
+        List<GameObject> enemiesWithInRange = GetAllEnimiesWithInFlameEffect(target.transform);
+        if (canFire)
         {
-            Fire(enemyInFlameEffect);
+            StartCoroutine(Fire(enemiesWithInRange));
         }
-
-        // fire gun
-        StartCoroutine(Fire(target));
     }
 }

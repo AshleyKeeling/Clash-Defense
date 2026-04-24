@@ -7,11 +7,14 @@ public class BaseTowerController : MonoBehaviour
     public ParticleSystem shootEffect;
     public TowerDataScriptableObject towerData;
     public AudioSource audioSource;
+    protected bool canFire = true;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         // towerData = GetComponent<TowerData>();
         shootEffect.Stop();
+        canFire = true;
     }
 
     void Update()
@@ -46,7 +49,7 @@ public class BaseTowerController : MonoBehaviour
         gunObj.rotation = Quaternion.Slerp(gunObj.rotation, rot, 10f * Time.deltaTime);
 
         // fire gun
-        if (towerData.canFire)
+        if (canFire)
         {
             StartCoroutine(Fire(target));
         }
@@ -54,7 +57,7 @@ public class BaseTowerController : MonoBehaviour
 
     protected virtual IEnumerator Fire(GameObject target)
     {
-        towerData.canFire = false;
+        canFire = false;
 
         // damage to enemey, bullet damage depends on if player has chose the damage ability
         if (towerData.isDamageAbilityEnabled)
@@ -67,6 +70,7 @@ public class BaseTowerController : MonoBehaviour
         }
 
         shootEffect.Play();
+        PlayShootSFX(true);
 
         // controlls the speed of the guns fire rate, fire rate depends if the player chose the boost ability
         if (towerData.isBoostAbilityEnabled)
@@ -79,12 +83,33 @@ public class BaseTowerController : MonoBehaviour
         }
 
         shootEffect.Stop();
-        towerData.canFire = true;
+        PlayShootSFX(false);
+        canFire = true;
     }
 
     public void PlayTowerPlacementSFX()
     {
         audioSource.PlayOneShot(towerData.towerPlacementSFX);
+    }
+
+    public void PlayShootSFX(bool play)
+    {
+        if (play)
+        {
+            if (!audioSource.isPlaying)
+            {
+                audioSource.clip = towerData.ShootSFX;
+                audioSource.loop = true;
+                audioSource.Play();
+            }
+        }
+        else
+        {
+            if (audioSource.isPlaying)
+            {
+                audioSource.Stop();
+            }
+        }
     }
 
     // -----------------------------------------------

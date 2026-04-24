@@ -7,12 +7,16 @@ public class GameManager : MonoBehaviour
     public UIManager uIManager;
     public bool IsPaused;
     private bool IsGameOver;
+    private AudioSource audioSource;
+
 
     private void Start()
     {
         enemyWaveSystem = FindObjectOfType<EnemyWaveSystem>();
         uIManager = FindObjectOfType<UIManager>();
         uIManager.StartGameUISetup();
+        audioSource = GetComponent<AudioSource>();
+        AudioListener.pause = false;
         IsPaused = false;
         IsGameOver = false;
         Time.timeScale = 1f;
@@ -22,7 +26,7 @@ public class GameManager : MonoBehaviour
     {
         IsGameOver = true;
 
-        Debug.Log("Game Over!!!!");
+        audioSource.Play();
 
         // disable game systems
         enemyWaveSystem.enabled = false;
@@ -37,6 +41,9 @@ public class GameManager : MonoBehaviour
         {
             IsPaused = true;
 
+            // pause sound
+            AudioListener.pause = true;
+
             // switches to pause menu UI
             uIManager.EnablePauseMenuUI();
 
@@ -48,6 +55,9 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
         IsPaused = false;
+
+        // un pauses audio
+        AudioListener.pause = false;
 
         // switches to back to game UI
         uIManager.DisablePauseMenuUI();

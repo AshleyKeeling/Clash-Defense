@@ -75,6 +75,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -689592836191732497, guid: 4682a988b9906ca438d30dc36213dd4a, type: 3}
+      propertyPath: m_Volume
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: -689592836191732497, guid: 4682a988b9906ca438d30dc36213dd4a, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 795927056642217009, guid: 4682a988b9906ca438d30dc36213dd4a, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -56,6 +56,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7282821170589429595, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282821170589429595, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: m_Volume
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7282821170589429595, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7355248616878556692, guid: a4fc9a43359aab04aac672bd8c64824f, type: 3}
       propertyPath: m_RootOrder
       value: 0

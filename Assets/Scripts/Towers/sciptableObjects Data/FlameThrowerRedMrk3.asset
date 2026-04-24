@@ -19,10 +19,9 @@ MonoBehaviour:
   towerImg: {fileID: 21300000, guid: dc913df1818f1423485c38568cd09c16, type: 3}
   fireRate: 0.15
   bulletDamage: 9
-  canFire: 1
   abilityFireRate: 0.11
   abilityBulletDamage: 13
   isBoostAbilityEnabled: 0
   isDamageAbilityEnabled: 0
-  towerPlacementSFX: {fileID: 8300000, guid: 651c6380247954be3a857867a5f6ddb4, type: 3}
-  ShootSFX: {fileID: 0}
+  towerPlacementSFX: {fileID: 8300000, guid: f5e8759c9ca954cdaa669e66bba82f1f, type: 3}
+  ShootSFX: {fileID: 8300000, guid: 458f7bffc16b643979de3b6629a6986d, type: 3}

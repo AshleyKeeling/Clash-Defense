@@ -3,13 +3,14 @@ using UnityEngine;
 public class Rocket : MonoBehaviour
 {
     public ParticleSystem exlosion;
-
+    private AudioSource audioSource;
     private float speed;
     private GameObject target;
     private int damage;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         exlosion.Stop();
     }
 
@@ -44,9 +45,10 @@ public class Rocket : MonoBehaviour
             col.gameObject.GetComponentInParent<BaseEnemy>().TakeDamage(damage);
 
             // explosion
+            audioSource.Play();
             exlosion.Play();
             // destory rocket
-            Destroy(gameObject, 0.3f);
+            Destroy(gameObject, 0.5f);
         }
     }
 }
