@@ -1,13 +1,22 @@
 using UnityEngine;
 
+public enum GameMode
+{
+    Levels,
+    Endless
+}
+
+public enum EnemyType
+{
+    Light,
+    Meduim,
+    Heavy
+}
+
 public class GameSession : MonoBehaviour
 {
     public static GameSession Instance;
-    public enum GameMode
-    {
-        Levels,
-        Endless
-    }
+
     public GameMode selectedMode;
     public int levelIndex;
 

@@ -20715,6 +20715,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17019ce2e630e40bda0f73d761e02f35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyWaveSystem
+  levels:
+  - {fileID: 11400000, guid: 57464e29a9dbc48b3983a2f47b6866ef, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   lightEnemyPrefab: {fileID: 1393236152541728, guid: cc5c63eca06f24845a87a3b6bbc95301, type: 3}
   meduimEnemyPrefab: {fileID: 1393236152541728, guid: a7866f4f27447d2479dc87e0fc298c94, type: 3}
   heavyEnemyPrefab: {fileID: 1393236152541728, guid: d901e60be9fa4e748b307e7bf94dedf0, type: 3}

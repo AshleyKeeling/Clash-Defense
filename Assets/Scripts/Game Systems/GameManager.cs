@@ -9,12 +9,29 @@ public class GameManager : MonoBehaviour
     private bool IsGameOver;
     private AudioSource audioSource;
 
-    private void Start()
+    private void Awake()
     {
         enemyWaveSystem = FindObjectOfType<EnemyWaveSystem>();
         uIManager = FindObjectOfType<UIManager>();
-        uIManager.StartGameUISetup();
         audioSource = GetComponent<AudioSource>();
+    }
+    private void Start()
+    {
+        if (GameSession.Instance.selectedMode == GameMode.Endless)
+        {
+            // start endless mode
+            enemyWaveSystem.EndlessMode();
+        }
+        else
+        {
+            // start levels mode
+            enemyWaveSystem.LevelsMode(GameSession.Instance.levelIndex);
+
+        }
+
+        uIManager.StartGameUISetup();
+
+        // standard settings
         AudioListener.pause = false;
         IsPaused = false;
         IsGameOver = false;

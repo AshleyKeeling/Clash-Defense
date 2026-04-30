@@ -7,16 +7,17 @@ using System.Collections.Generic;
 public class EnemyWaveSystem : MonoBehaviour
 {
     [Header("References")]
+    public List<LevelScriptableOject> levels;
     public GameObject lightEnemyPrefab;
     public GameObject meduimEnemyPrefab;
     public GameObject heavyEnemyPrefab;
     public Transform enemySpawnPos;
 
-    [Header("Wave Settings")]
+    [Header("Endless Wave Settings")]
     public int firstWaveDuration = 3;
     public float enemySpawnFreqInSeconds = 5f;
 
-    public int waveNumber = 1;
+    public int waveNumber;
     // private variables
     private UIManager uIManager;
     private EnemyManager enemyManager;
@@ -24,45 +25,121 @@ public class EnemyWaveSystem : MonoBehaviour
     public bool isWaveActive = false;
     public bool startWave = false;
 
+    private GameMode gameMode;
+    private int levelIndex;
+    private int enemyWaveIndex = 0;
+
     void Start()
     {
         startWave = false;
+        waveNumber = 1;
         uIManager = FindObjectOfType<UIManager>();
         enemyManager = FindObjectOfType<EnemyManager>();
     }
 
-    private void StartWave()
+    public void EndlessMode()
+    {
+        gameMode = GameMode.Endless;
+    }
+
+    public void LevelsMode(int index)
+    {
+        gameMode = GameMode.Levels;
+        levelIndex = index;
+    }
+
+    // called from UI button
+    public void StartNextWave()
+    {
+        // if endless mode
+        if (gameMode == GameMode.Endless)
+        {
+            Debug.Log("Endless Mode");
+        }
+        else
+        {
+            Debug.Log("Level Mode");
+            Debug.Log(levels[levelIndex - 1].waves[waveNumber - 1].WaveDuration);
+
+            SpawnLevelWave();
+
+        }
+        // spawn next wave
+
+        // if levels mode
+        // move onto next wave
+        // if its last wave in level
+        // move onto next level
+    }
+    private void SpawnLevelWave()
     {
         isWaveActive = true;
-        // ui code
+        // calculate enemies spawn frequency (duration/enemyCount)
+        float spawnFreq = levels[levelIndex - 1].waves[waveNumber - 1].WaveDuration / levels[levelIndex - 1].waves[waveNumber - 1].SpawnOrder.Count;
+        // spawn enemy every x frequency working through list
+        StartCoroutine(SpawnEnemies(spawnFreq));
+
         uIManager.DisplayCombatUI();
         uIManager.UpdateWaveNumber(waveNumber);
-        StartCoroutine(WaveTimer(firstWaveDuration));
-
-        // scales enemy spawn freq to wave number
-        enemySpawnFreqInSeconds = Mathf.Max(0.2f, 1f - waveNumber * 0.05f);
-
-        InvokeRepeating("SpawnEnemy", 0f, enemySpawnFreqInSeconds);
+        StartCoroutine(WaveTimer(levels[levelIndex - 1].waves[waveNumber - 1].WaveDuration));
     }
 
-    private void EndWave()
+    private void SpawnEnemy()
     {
-        CancelInvoke("SpawnEnemy");
+        // random enemy
+        // int randomIndex = Random.Range(0, 3);
 
-        // wait till there are no remaining enimies
-        StartCoroutine(WaitForEnimiesToClear());
+        EnemyType enemyType = levels[levelIndex - 1].waves[waveNumber - 1].SpawnOrder[enemyWaveIndex];
+
+        switch (enemyType)
+        {
+            case EnemyType.Light:
+                GameObject lightEnemy = Instantiate(lightEnemyPrefab, enemySpawnPos);
+                enemyManager.AddEnemy(lightEnemy);
+                enemyWaveIndex++;
+                break;
+            case EnemyType.Meduim:
+                GameObject meduimEnemy = Instantiate(meduimEnemyPrefab, enemySpawnPos);
+                enemyManager.AddEnemy(meduimEnemy);
+                enemyWaveIndex++;
+                break;
+            case EnemyType.Heavy:
+                GameObject heavyEnemy = Instantiate(heavyEnemyPrefab, enemySpawnPos);
+                enemyManager.AddEnemy(heavyEnemy);
+                enemyWaveIndex++;
+                break;
+        }
     }
+
+    IEnumerator SpawnEnemies(float spawnFreq)
+    {
+        while (enemyWaveIndex < levels[levelIndex - 1].waves[waveNumber - 1].SpawnOrder.Count)
+        {
+            SpawnEnemy();
+            yield return new WaitForSeconds(spawnFreq);
+        }
+
+        StartCoroutine(WaitForEnimiesToClear());
+
+    }
+
+
 
     private IEnumerator WaitForEnimiesToClear()
     {
-        while (GameObject.FindGameObjectsWithTag("Enemy").Length > 0)
+        if (isWaveActive)
         {
-            // wait one frame
-            yield return null;
+            while (GameObject.FindGameObjectsWithTag("Enemy").Length > 0)
+            {
+                // wait one frame
+                yield return null;
+            }
+
+            waveNumber++;
+            enemyWaveIndex = 0;
+            uIManager.DisplayBuildUI();
         }
 
-        waveNumber += 1;
-        uIManager.DisplayBuildUI();
     }
 
     private IEnumerator WaveTimer(int waveDuration)
@@ -79,45 +156,8 @@ public class EnemyWaveSystem : MonoBehaviour
         }
 
         // ends wave
-        isWaveActive = false;
-        EndWave();
+        // isWaveActive = false;
+        // EndWave();
         Debug.Log("end wave");
-    }
-
-    private void SpawnEnemy()
-    {
-        // random enemy
-        int randomIndex = Random.Range(0, 3);
-
-        switch (randomIndex)
-        {
-            case 0:
-                GameObject lightEnemy = Instantiate(lightEnemyPrefab, enemySpawnPos);
-                enemyManager.AddEnemy(lightEnemy);
-                break;
-            case 1:
-                GameObject meduimEnemy = Instantiate(meduimEnemyPrefab, enemySpawnPos);
-                enemyManager.AddEnemy(meduimEnemy);
-                break;
-            case 2:
-                GameObject heavyEnemy = Instantiate(heavyEnemyPrefab, enemySpawnPos);
-                enemyManager.AddEnemy(heavyEnemy);
-                break;
-        }
-    }
-
-    public void StartNextWave()
-    {
-
-        startWave = true;
-    }
-
-    void Update()
-    {
-        if (startWave == true && isWaveActive == false)
-        {
-            StartWave();
-            startWave = false;
-        }
     }
 }
