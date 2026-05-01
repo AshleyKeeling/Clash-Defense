@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public Canvas combatUI;
     public TextMeshProUGUI currencyNumber1;
     public TextMeshProUGUI waveTimeLeft;
+    public TextMeshProUGUI levelNumber;
     public TextMeshProUGUI waveNumber;
     public Button slowSpeedButton;
     public Button normalSpeedButton;
@@ -109,11 +110,24 @@ public class UIManager : MonoBehaviour
         currencyNumber1.text = "₡" + currency.ToString() + " credits";
         currencyNumber2.text = "₡" + currency.ToString() + " credits";
     }
+
     public void UpdateWaveTimeDisplay(int timeLeft)
     {
         TimeSpan time = TimeSpan.FromSeconds(timeLeft);
 
         waveTimeLeft.text = "Time Left: " + time.ToString(@"mm\:ss");
+    }
+
+    public void UpdateLevelNumber(int levelNum)
+    {
+        if (levelNum == 0)
+        {
+            levelNumber.text = "Endless";
+        }
+        else
+        {
+            levelNumber.text = "Level: " + levelNum.ToString();
+        }
     }
 
     public void UpdateWaveNumber(int waveNum)

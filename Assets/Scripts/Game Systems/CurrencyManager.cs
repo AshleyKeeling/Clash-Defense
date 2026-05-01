@@ -3,7 +3,7 @@ using UnityEngine;
 public class CurrencyManager : MonoBehaviour
 {
     private UIManager uIManager;
-    public int startGameBalance;
+    // public int startGameBalance;
 
     private int playerCreditsBalance;
 
@@ -13,8 +13,13 @@ public class CurrencyManager : MonoBehaviour
     {
         uIManager = FindObjectOfType<UIManager>();
 
-        playerCreditsBalance = startGameBalance;
+        // playerCreditsBalance = startGameBalance;
         uIManager.UpdateCurrencyDisplay(playerCreditsBalance);
+    }
+
+    public void SetCreditBalance(int amount)
+    {
+        playerCreditsBalance = amount;
     }
 
     public void AddCredits(int amount)

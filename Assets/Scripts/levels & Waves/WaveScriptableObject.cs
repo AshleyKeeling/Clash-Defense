@@ -6,7 +6,5 @@ using System.Collections.Generic;
 public class WaveScriptableObject : ScriptableObject
 {
     public int WaveDuration;
-
-
     public List<EnemyType> SpawnOrder;
 }

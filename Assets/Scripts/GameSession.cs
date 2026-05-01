@@ -16,7 +16,6 @@ public enum EnemyType
 public class GameSession : MonoBehaviour
 {
     public static GameSession Instance;
-
     public GameMode selectedMode;
     public int levelIndex;
 

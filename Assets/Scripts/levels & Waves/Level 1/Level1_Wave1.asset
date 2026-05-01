@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61593be85a1074447a58375b3e159c65, type: 3}
   m_Name: Level1_Wave1
   m_EditorClassIdentifier: Assembly-CSharp::WaveScriptableObject
-  WaveDuration: 60
+  WaveDuration: 5
   SpawnOrder: 0000000001000000020000000100000000000000

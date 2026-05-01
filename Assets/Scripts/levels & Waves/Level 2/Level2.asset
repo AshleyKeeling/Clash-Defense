@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 525386f9a2158408b9acf04dc90ae8f7, type: 3}
-  m_Name: Level1
+  m_Name: Level2
   m_EditorClassIdentifier: Assembly-CSharp::LevelScriptableOject
-  StartGameBalance: 150
+  StartGameBalance: 56
   Waves:
-  - {fileID: 11400000, guid: 29ccb20854be2472c8e50260ef3e5a02, type: 2}
-  - {fileID: 11400000, guid: 86dd346f4aa06443c92f71ec609796aa, type: 2}
+  - {fileID: 11400000, guid: b91c5d8fb11334fa687758498bb67663, type: 2}
+  - {fileID: 11400000, guid: 45e5e49683a1f4d2881136eb9ae2be4e, type: 2}

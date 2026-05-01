@@ -3,8 +3,11 @@ using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
-    public EnemyWaveSystem enemyWaveSystem;
-    public UIManager uIManager;
+    [Header("Game Prefs")]
+    public int endlessModeStartCreditBalance;
+    private EnemyWaveSystem enemyWaveSystem;
+    private CurrencyManager currencyManager;
+    private UIManager uIManager;
     public bool IsPaused;
     private bool IsGameOver;
     private AudioSource audioSource;
@@ -12,6 +15,7 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         enemyWaveSystem = FindObjectOfType<EnemyWaveSystem>();
+        currencyManager = FindObjectOfType<CurrencyManager>();
         uIManager = FindObjectOfType<UIManager>();
         audioSource = GetComponent<AudioSource>();
     }
@@ -21,12 +25,14 @@ public class GameManager : MonoBehaviour
         {
             // start endless mode
             enemyWaveSystem.EndlessMode();
+
+            // set start balance
+            currencyManager.SetCreditBalance(endlessModeStartCreditBalance);
         }
         else
         {
             // start levels mode
             enemyWaveSystem.LevelsMode(GameSession.Instance.levelIndex);
-
         }
 
         uIManager.StartGameUISetup();
