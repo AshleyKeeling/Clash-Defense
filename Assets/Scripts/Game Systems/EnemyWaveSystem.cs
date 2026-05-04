@@ -61,6 +61,7 @@ public class EnemyWaveSystem : MonoBehaviour
     // called from UI button
     public void StartNextWave()
     {
+        uIManager.DisplayBuildUI();
         // if endless mode
         if (gameMode == GameMode.Endless)
         {
@@ -182,7 +183,6 @@ public class EnemyWaveSystem : MonoBehaviour
 
             IncreaseWaveOrLevelIndex();
             enemyWaveIndex = 0;
-            uIManager.DisplayBuildUI();
         }
 
     }
@@ -217,6 +217,8 @@ public class EnemyWaveSystem : MonoBehaviour
             else
             {
                 Debug.Log("No More Waves in current Level");
+
+
                 // check if there is another level
                 if (levelIndex < levels.Count)
                 {
@@ -226,10 +228,11 @@ public class EnemyWaveSystem : MonoBehaviour
 
                     // reset wave number
                     waveNumber = 1;
+                    uIManager.DisplayLevelCompleteUI();
                 }
                 else
                 {
-                    // need to handel 
+                    uIManager.DisplayAllLevelsCompleteUI();
                     Debug.Log("NO MORE LEVELS");
                 }
             }

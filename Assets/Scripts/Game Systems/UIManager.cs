@@ -5,7 +5,7 @@ using System;
 public class UIManager : MonoBehaviour
 {
     [Header("Combat UI")]
-    public Canvas combatUI;
+    public GameObject combatPanel;
     public TextMeshProUGUI currencyNumber1;
     public TextMeshProUGUI waveTimeLeft;
     public TextMeshProUGUI levelNumber;
@@ -18,14 +18,21 @@ public class UIManager : MonoBehaviour
     public Button boostButton;
 
     [Header("Build UI")]
-    public Canvas buildUI;
+    public GameObject buildPanel;
     public TextMeshProUGUI currencyNumber2;
 
-    [Header("Game Over UI")]
-    public Canvas gameOverUI;
+    [Header("Level Complete UI")]
+    public GameObject levelCompletePanel;
+    public TextMeshProUGUI levelCompletePanel_levelNumber;
 
+    [Header("All Levels Complete UI")]
+    public GameObject allLevelsCompletePanel;
+    public TextMeshProUGUI allLevelsCompletPanel_levelNumber;
     [Header("Pause Menu UI")]
-    public Canvas pauseMenuUI;
+    public GameObject pauseMenuPanel;
+
+    [Header("Game Over UI")]
+    public GameObject gameOverPanel;
 
     [Header("Player Base UI")]
     public Slider PlayerBaseHealth1;
@@ -37,71 +44,88 @@ public class UIManager : MonoBehaviour
 
     public void StartGameUISetup()
     {
-        combatUI.enabled = false;
-        buildUI.enabled = true;
-        gameOverUI.enabled = false;
-        pauseMenuUI.enabled = false;
+        combatPanel.SetActive(false);
+        buildPanel.SetActive(true);
+        levelCompletePanel.SetActive(false);
+        allLevelsCompletePanel.SetActive(false);
+        pauseMenuPanel.SetActive(false);
+        gameOverPanel.SetActive(false);
     }
-
-
 
     public void DisplayCombatUI()
     {
-        if (gameOverUI.enabled != true)
+        if (!gameOverPanel.activeSelf)
         {
-            combatUI.enabled = true;
-            buildUI.enabled = false;
+            combatPanel.SetActive(true);
+            buildPanel.SetActive(false);
         }
 
     }
 
     public void DisplayBuildUI()
     {
-        if (gameOverUI.enabled != true)
+        if (!gameOverPanel.activeSelf)
         {
-            buildUI.enabled = true;
-            combatUI.enabled = false;
+            buildPanel.SetActive(true);
+            levelCompletePanel.SetActive(false);
+            combatPanel.SetActive(false);
         }
     }
 
-    public void DisplayGameOverUI()
+    public void DisplayLevelCompleteUI()
     {
-        buildUI.enabled = false;
-        combatUI.enabled = false;
-        gameOverUI.enabled = true;
+        if (!gameOverPanel.activeSelf)
+        {
+            levelCompletePanel.SetActive(true);
+            combatPanel.SetActive(false);
+        }
+    }
+
+    public void DisplayAllLevelsCompleteUI()
+    {
+        if (!gameOverPanel.activeSelf)
+        {
+            allLevelsCompletePanel.SetActive(true);
+            combatPanel.SetActive(false);
+        }
     }
 
     public void EnablePauseMenuUI()
     {
         // saves current game phase(eihter build or combat)
-        if (combatUI.enabled == true)
+        if (combatPanel.activeSelf)
         {
             IsGameInCombatPhase = true;
-            combatUI.enabled = false;
-
+            combatPanel.SetActive(false);
         }
         else
         {
             IsGameInCombatPhase = false;
-            buildUI.enabled = false;
+            buildPanel.SetActive(false);
 
         }
-
-        pauseMenuUI.enabled = true;
+        pauseMenuPanel.SetActive(true);
     }
 
     public void DisablePauseMenuUI()
     {
-        pauseMenuUI.enabled = false;
+        pauseMenuPanel.SetActive(false);
 
         if (IsGameInCombatPhase)
         {
-            combatUI.enabled = true;
+            combatPanel.SetActive(true);
         }
         else
         {
-            buildUI.enabled = true;
+            buildPanel.SetActive(true);
         }
+    }
+
+    public void DisplayGameOverUI()
+    {
+        buildPanel.SetActive(false);
+        combatPanel.SetActive(false);
+        gameOverPanel.SetActive(true);
     }
 
     // --- combat UI ---
