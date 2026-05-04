@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61593be85a1074447a58375b3e159c65, type: 3}
-  m_Name: Level1_Wave2
-  m_EditorClassIdentifier: Assembly-CSharp::WaveScriptableObject
-  WaveDuration: 12
-  SpawnOrder: 000000000100000002000000000000000100000002000000
+  m_Script: {fileID: 11500000, guid: 525386f9a2158408b9acf04dc90ae8f7, type: 3}
+  m_Name: Level9
+  m_EditorClassIdentifier: Assembly-CSharp::LevelScriptableOject
+  StartGameBalance: 300
+  Waves:
+  - {fileID: 11400000, guid: 03d1fd4fdddc640f8af30103c64aa11d, type: 2}
