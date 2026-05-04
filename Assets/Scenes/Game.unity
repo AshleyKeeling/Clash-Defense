@@ -20719,6 +20719,14 @@ MonoBehaviour:
   levels:
   - {fileID: 11400000, guid: 57464e29a9dbc48b3983a2f47b6866ef, type: 2}
   - {fileID: 11400000, guid: 9f1e4a5d2beb241cd9d10e30c82f81ff, type: 2}
+  - {fileID: 11400000, guid: 9c6cbd11d81954e40a37f70e86dffdf9, type: 2}
+  - {fileID: 11400000, guid: cbf773e8b89cb4a909c872b06f8fdc58, type: 2}
+  - {fileID: 11400000, guid: 6a5e05639133e4c00b1d8e01ef2575cc, type: 2}
+  - {fileID: 11400000, guid: d968d10834d224a8d956280ac73faba9, type: 2}
+  - {fileID: 11400000, guid: 7fed96bf3beb940d3acfc84a13d673a3, type: 2}
+  - {fileID: 11400000, guid: 642f93be807ef4296b90d0cadd0a4111, type: 2}
+  - {fileID: 11400000, guid: 8901fc3b2cf1e4e939398165989faa2b, type: 2}
+  - {fileID: 11400000, guid: 7d9a534abe04f4c72ac03fb54f1bfe15, type: 2}
   currencyManager: {fileID: 0}
   lightEnemyPrefab: {fileID: 1393236152541728, guid: cc5c63eca06f24845a87a3b6bbc95301, type: 3}
   meduimEnemyPrefab: {fileID: 1393236152541728, guid: a7866f4f27447d2479dc87e0fc298c94, type: 3}
