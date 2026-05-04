@@ -4,15 +4,19 @@ using System.Collections.Generic;
 
 public class TowerManager : MonoBehaviour
 {
+    // events
+    public static event System.Action<int> OnDamageAbility;
+    public static event System.Action<int> OnBoostAbility;
+    public static event System.Action<bool> OnDamageAbilityBtn;
+    public static event System.Action<bool> OnBoostAbilityBtn;
+    // variables
     public AbilitySciptableObject DamageAbilityData;
     public AbilitySciptableObject BoostAbilityData;
     public List<GameObject> towers;
-    private UIManager uIManager;
     private CurrencyManager currencyManager;
 
     private void Start()
     {
-        uIManager = FindObjectOfType<UIManager>();
         currencyManager = FindObjectOfType<CurrencyManager>();
     }
 
@@ -39,10 +43,11 @@ public class TowerManager : MonoBehaviour
         if (currencyManager.CanPlayerAfford(DamageAbilityData.cost))
         {
             // subtract currency
-            currencyManager.SubtractCredits(DamageAbilityData.cost);
+            OnDamageAbility?.Invoke(DamageAbilityData.cost);
+
 
             // disable btn to avoid being double clicked
-            uIManager.SetDamageButtonState(false);
+            OnDamageAbilityBtn?.Invoke(false);
 
             // enable isDamageAbilityEnabled to true
             foreach (GameObject tower in towers)
@@ -60,7 +65,7 @@ public class TowerManager : MonoBehaviour
             }
 
             // re enables btn
-            uIManager.SetDamageButtonState(true);
+            OnDamageAbilityBtn?.Invoke(true);
         }
     }
 
@@ -71,10 +76,10 @@ public class TowerManager : MonoBehaviour
         if (currencyManager.CanPlayerAfford(BoostAbilityData.cost))
         {
             // subtract currency
-            currencyManager.SubtractCredits(BoostAbilityData.cost);
+            OnBoostAbility?.Invoke(BoostAbilityData.cost);
 
             // disable btn to avoid being double clicked
-            uIManager.SetBoostButtonState(false);
+            OnBoostAbilityBtn?.Invoke(false);
 
             // enable isDamageAbilityEnabled to true
             foreach (GameObject tower in towers)
@@ -92,7 +97,17 @@ public class TowerManager : MonoBehaviour
             }
 
             // re enables btn
-            uIManager.SetBoostButtonState(true);
+            OnBoostAbilityBtn?.Invoke(true);
         }
+    }
+
+    private void OnEnable()
+    {
+        TowerDragUI.OnTowerCreated += AddTower;
+    }
+
+    private void OnDisable()
+    {
+        TowerDragUI.OnTowerCreated -= AddTower;
     }
 }

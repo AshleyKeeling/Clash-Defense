@@ -4,12 +4,17 @@ using System.Collections.Generic;
 
 public class EnemyWaveSystem : MonoBehaviour
 {
+    // events
+    public static event System.Action<int> OnSetCreditBalance;
+    public static event System.Action<GameObject> OnNewEnemy;
+    public static event System.Action<int, int> OnStartWave; // takes level num, wave num
+    public static event System.Action OnEndWave;
+    public static event System.Action<bool, int> OnLevelEnded; // takes has level ended, level num
+    public static event System.Action<int> OnUpdateTimer;
+
+    // variables
     [Header("References")]
     public List<LevelScriptableOject> levels;
-    private UIManager uIManager;
-    private EnemyManager enemyManager;
-    public CurrencyManager currencyManager;
-
 
     [Header("Enemy Prefabs")]
     public GameObject lightEnemyPrefab;
@@ -31,22 +36,18 @@ public class EnemyWaveSystem : MonoBehaviour
     private int enemyWaveIndex = 0;
     private int endlessWaveDuration;
     private bool isWaveActive = false;
+    private bool hasNextLevel;
     private List<EnemyType> endlessEnemiesList = new List<EnemyType>();
-
 
     void Start()
     {
         waveNumber = 1;
-        uIManager = FindObjectOfType<UIManager>();
-        enemyManager = FindObjectOfType<EnemyManager>();
-        currencyManager = FindObjectOfType<CurrencyManager>();
     }
 
     // called by game manager
     public void EndlessMode()
     {
         gameMode = GameMode.Endless;
-        uIManager.UpdateLevelNumber(0);
     }
 
     // called by game manager
@@ -54,23 +55,23 @@ public class EnemyWaveSystem : MonoBehaviour
     {
         gameMode = GameMode.Levels;
         levelIndex = index;
-        currencyManager.SetCreditBalance(levels[levelIndex - 1].StartGameBalance);
-        uIManager.UpdateLevelNumber(levelIndex);
+        OnSetCreditBalance?.Invoke(levels[levelIndex - 1].StartGameBalance);
     }
 
     // called from UI button
     public void StartNextWave()
     {
-        uIManager.DisplayBuildUI();
         // if endless mode
         if (gameMode == GameMode.Endless)
         {
             GenerateEndlessWave();
             SpawnWave(endlessEnemiesList, endlessWaveDuration);
+            OnStartWave?.Invoke(0, waveNumber);
         }
         else
         {
             SpawnWave(levels[levelIndex - 1].Waves[waveNumber - 1].SpawnOrder, levels[levelIndex - 1].Waves[waveNumber - 1].WaveDuration);
+            OnStartWave?.Invoke(levelIndex, waveNumber);
         }
     }
 
@@ -131,9 +132,6 @@ public class EnemyWaveSystem : MonoBehaviour
         isWaveActive = true;
         float spawnFreq = waveDuration / enemies.Count;
         StartCoroutine(SpawnEnemies(enemies, spawnFreq));
-
-        uIManager.DisplayCombatUI();
-        uIManager.UpdateWaveNumber(waveNumber);
         StartCoroutine(WaveTimer(waveDuration));
     }
     IEnumerator SpawnEnemies(List<EnemyType> enemies, float spawnFreq)
@@ -154,17 +152,19 @@ public class EnemyWaveSystem : MonoBehaviour
         {
             case EnemyType.Light:
                 GameObject lightEnemy = Instantiate(lightEnemyPrefab, enemySpawnPos);
-                enemyManager.AddEnemy(lightEnemy);
+                OnNewEnemy?.Invoke(lightEnemy);
                 enemyWaveIndex++;
                 break;
+
             case EnemyType.Meduim:
                 GameObject meduimEnemy = Instantiate(meduimEnemyPrefab, enemySpawnPos);
-                enemyManager.AddEnemy(meduimEnemy);
+                OnNewEnemy?.Invoke(meduimEnemy);
                 enemyWaveIndex++;
                 break;
+
             case EnemyType.Heavy:
                 GameObject heavyEnemy = Instantiate(heavyEnemyPrefab, enemySpawnPos);
-                enemyManager.AddEnemy(heavyEnemy);
+                OnNewEnemy?.Invoke(heavyEnemy);
                 enemyWaveIndex++;
                 break;
         }
@@ -194,7 +194,7 @@ public class EnemyWaveSystem : MonoBehaviour
         while (timer > 0)
         {
             timer -= 1;
-            uIManager.UpdateWaveTimeDisplay(timer);
+            OnUpdateTimer?.Invoke(timer);
             yield return new WaitForSeconds(1);
         }
     }
@@ -212,28 +212,33 @@ public class EnemyWaveSystem : MonoBehaviour
             // check if there is another wave
             if (waveNumber < levels[levelIndex - 1].Waves.Count)
             {
+                // goes to next wave
                 waveNumber++;
+                OnEndWave?.Invoke();
             }
             else
             {
                 Debug.Log("No More Waves in current Level");
 
-
                 // check if there is another level
                 if (levelIndex < levels.Count)
                 {
-                    // goes to next level
-                    levelIndex++;
-                    uIManager.UpdateLevelNumber(levelIndex);
-
                     // reset wave number
                     waveNumber = 1;
-                    uIManager.DisplayLevelCompleteUI();
+
+                    hasNextLevel = true;
                 }
                 else
                 {
-                    uIManager.DisplayAllLevelsCompleteUI();
+                    hasNextLevel = false;
                     Debug.Log("NO MORE LEVELS");
+                }
+                OnLevelEnded?.Invoke(hasNextLevel, levelIndex);
+
+                if (hasNextLevel)
+                {
+                    // goes to next level
+                    levelIndex++;
                 }
             }
         }

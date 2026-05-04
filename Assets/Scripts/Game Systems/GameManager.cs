@@ -118,4 +118,14 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("StartMenu");
         Debug.Log("Game Quit");
     }
+
+    private void OnEnable()
+    {
+        PlayerBaseHealth.OnPlayerBaseDestroyed += GameOver;
+    }
+
+    private void OnDisable()
+    {
+        PlayerBaseHealth.OnPlayerBaseDestroyed -= GameOver;
+    }
 }

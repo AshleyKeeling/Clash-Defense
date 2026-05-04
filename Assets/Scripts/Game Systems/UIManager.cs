@@ -24,6 +24,7 @@ public class UIManager : MonoBehaviour
     [Header("Level Complete UI")]
     public GameObject levelCompletePanel;
     public TextMeshProUGUI levelCompletePanel_levelNumber;
+    public TextMeshProUGUI levelCompletePanel_nextLevelNumber;
 
     [Header("All Levels Complete UI")]
     public GameObject allLevelsCompletePanel;
@@ -198,10 +199,87 @@ public class UIManager : MonoBehaviour
     // --- build UI ---
 
 
+    // -- Level Complete UI ---
+
+    private void UpdateLevelCompletePanel_levelNumber(int levelNum)
+    {
+        levelCompletePanel_levelNumber.text = "Level " + levelNum.ToString() + " Complete!";
+    }
+
+    private void UpdateLevelCompletePanel_nextLevelNumber(int levelNum)
+    {
+        levelCompletePanel_nextLevelNumber.text = "Next Level: " + levelNum.ToString();
+    }
+
+    // -- All levels Complete UI ---
+    private void UpdateAllLevelsCompletePanel_levelNum(int levelNum)
+    {
+        allLevelsCompletPanel_levelNumber.text = "Level " + levelNum.ToString() + " Complete!";
+
+    }
+
     // --- player base UI ---
     public void UpdatePlayerBaseHealthBar(float health, float maxHealth)
     {
         PlayerBaseHealth1.value = health / maxHealth;
         PlayerBaseHealth2.value = health / maxHealth;
+    }
+
+
+    // subscribe to events
+    private void OnEnable()
+    {
+        CurrencyManager.OnCurrencyUpdate += UpdateCurrencyDisplay;
+        PlayerBaseHealth.OnUpdateHealth += UpdatePlayerBaseHealthBar;
+        EnemyManager.OnFreezeAbilityBtn += SetFreezeButtonState;
+        TowerManager.OnDamageAbilityBtn += SetDamageButtonState;
+        TowerManager.OnBoostAbilityBtn += SetBoostButtonState;
+
+        EnemyWaveSystem.OnStartWave += HandleOnStartWave;
+        EnemyWaveSystem.OnEndWave += DisplayBuildUI;
+        EnemyWaveSystem.OnUpdateTimer += UpdateWaveTimeDisplay;
+        EnemyWaveSystem.OnLevelEnded += HandleOnLevelEnded;
+    }
+
+    // unsubscribe to events
+    private void OnDisable()
+    {
+        CurrencyManager.OnCurrencyUpdate -= UpdateCurrencyDisplay;
+        PlayerBaseHealth.OnUpdateHealth -= UpdatePlayerBaseHealthBar;
+        EnemyManager.OnFreezeAbilityBtn -= SetFreezeButtonState;
+        TowerManager.OnDamageAbilityBtn -= SetDamageButtonState;
+        TowerManager.OnBoostAbilityBtn -= SetBoostButtonState;
+
+        EnemyWaveSystem.OnStartWave -= HandleOnStartWave;
+        EnemyWaveSystem.OnEndWave -= DisplayBuildUI;
+        EnemyWaveSystem.OnUpdateTimer -= UpdateWaveTimeDisplay;
+        EnemyWaveSystem.OnLevelEnded -= HandleOnLevelEnded;
+
+    }
+
+    // handles on start wave
+    private void HandleOnStartWave(int levelNum, int waveNum)
+    {
+        // change UI focus
+        DisplayCombatUI();
+
+        // updating data
+        UpdateLevelNumber(levelNum);
+        UpdateWaveNumber(waveNum);
+    }
+
+    private void HandleOnLevelEnded(bool hasNextLevel, int levelNum)
+    {
+        if (hasNextLevel)
+        {
+            UpdateLevelCompletePanel_levelNumber(levelNum);
+            UpdateLevelCompletePanel_nextLevelNumber(levelNum + 1);
+            DisplayLevelCompleteUI();
+        }
+        else
+        {
+            UpdateAllLevelsCompletePanel_levelNum(levelNum);
+            DisplayAllLevelsCompleteUI();
+        }
     }
 }

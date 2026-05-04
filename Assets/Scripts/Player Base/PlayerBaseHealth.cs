@@ -2,17 +2,19 @@ using UnityEngine;
 
 public class PlayerBaseHealth : MonoBehaviour
 {
+    // events
+    public static event System.Action<float, float> OnUpdateHealth;
+    public static event System.Action OnPlayerBaseDestroyed;
+
+    // variables
     public float maxHealth = 100f;
     public float health;
-    private UIManager uIManager;
-    private GameManager gameManager;
 
     void Start()
     {
         health = maxHealth;
-        uIManager = FindObjectOfType<UIManager>();
-        uIManager.UpdatePlayerBaseHealthBar(health, maxHealth);
-        gameManager = FindObjectOfType<GameManager>();
+        // update health bar
+        OnUpdateHealth?.Invoke(health, maxHealth);
     }
 
     public void TakeDamage(float damage)
@@ -21,11 +23,11 @@ public class PlayerBaseHealth : MonoBehaviour
         health -= damage;
 
         // update health bar
-        uIManager.UpdatePlayerBaseHealthBar(health, maxHealth);
+        OnUpdateHealth?.Invoke(health, maxHealth);
 
         if (health <= 0)
         {
-            gameManager.GameOver();
+            OnPlayerBaseDestroyed?.Invoke();
         }
     }
 

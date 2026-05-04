@@ -570,7 +570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &46644634
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2639,9 +2639,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1187590333}
-        m_TargetAssemblyTypeName: EnemyWaveSystem, Assembly-CSharp
-        m_MethodName: StartNextWave
+      - m_Target: {fileID: 1187590335}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: DisplayBuildUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15994,7 +15994,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &850174548
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21856,7 +21856,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 642f93be807ef4296b90d0cadd0a4111, type: 2}
   - {fileID: 11400000, guid: 8901fc3b2cf1e4e939398165989faa2b, type: 2}
   - {fileID: 11400000, guid: 7d9a534abe04f4c72ac03fb54f1bfe15, type: 2}
-  currencyManager: {fileID: 0}
   lightEnemyPrefab: {fileID: 1393236152541728, guid: cc5c63eca06f24845a87a3b6bbc95301, type: 3}
   meduimEnemyPrefab: {fileID: 1393236152541728, guid: a7866f4f27447d2479dc87e0fc298c94, type: 3}
   heavyEnemyPrefab: {fileID: 1393236152541728, guid: d901e60be9fa4e748b307e7bf94dedf0, type: 3}
@@ -21907,7 +21906,10 @@ MonoBehaviour:
   buildPanel: {fileID: 1270823628}
   currencyNumber2: {fileID: 1838403978}
   levelCompletePanel: {fileID: 46644630}
+  levelCompletePanel_levelNumber: {fileID: 311719321}
+  levelCompletePanel_nextLevelNumber: {fileID: 1716754642}
   allLevelsCompletePanel: {fileID: 850174547}
+  allLevelsCompletPanel_levelNumber: {fileID: 1399850353}
   pauseMenuPanel: {fileID: 2024177312}
   gameOverPanel: {fileID: 904844209}
   PlayerBaseHealth1: {fileID: 1879437198}
@@ -32255,7 +32257,7 @@ GameObject:
   - component: {fileID: 1716754643}
   - component: {fileID: 1716754642}
   m_Layer: 5
-  m_Name: Time left (1)
+  m_Name: nextWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32300,7 +32302,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Next Wave: 4'
+  m_text: 'Next Level: 4'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 90ebca11219e34acc8f835778636fa3f, type: 2}
   m_sharedMaterial: {fileID: 3166620010882519835, guid: 90ebca11219e34acc8f835778636fa3f, type: 2}

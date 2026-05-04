@@ -1,6 +1,9 @@
 using UnityEngine;
 public class BaseEnemy : MonoBehaviour
 {
+    // events
+    public static event System.Action<GameObject, int> OnEnemyDied;
+    [Header("variables")]
     public float speed = 2f;
     private Transform[] pathPoints;
     private int currentPathPointIndex = 0;
@@ -73,10 +76,6 @@ public class BaseEnemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            // adds credits to player currency balance
-            CurrencyManager currencyManager = FindObjectOfType<CurrencyManager>();
-            currencyManager.AddCredits(creditAmount);
-
             // kills enemey
             Death();
             return;
@@ -93,9 +92,8 @@ public class BaseEnemy : MonoBehaviour
 
     public void Death()
     {
-        // removes from list
-        EnemyManager enemyManager = FindObjectOfType<EnemyManager>();
-        enemyManager.RemoveEnemy(gameObject);
+        // fires event
+        OnEnemyDied?.Invoke(gameObject, creditAmount);
 
         // destorys self
         Destroy(gameObject);

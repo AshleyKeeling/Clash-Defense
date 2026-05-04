@@ -2,19 +2,17 @@ using UnityEngine;
 
 public class CurrencyManager : MonoBehaviour
 {
-    private UIManager uIManager;
-    // public int startGameBalance;
+    // events
+    public static event System.Action<int> OnCurrencyUpdate;
 
+    // variables
     private int playerCreditsBalance;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        uIManager = FindObjectOfType<UIManager>();
-
-        // playerCreditsBalance = startGameBalance;
-        uIManager.UpdateCurrencyDisplay(playerCreditsBalance);
+        OnCurrencyUpdate?.Invoke(playerCreditsBalance);
     }
 
     public void SetCreditBalance(int amount)
@@ -25,13 +23,13 @@ public class CurrencyManager : MonoBehaviour
     public void AddCredits(int amount)
     {
         playerCreditsBalance += amount;
-        uIManager.UpdateCurrencyDisplay(playerCreditsBalance);
+        OnCurrencyUpdate?.Invoke(playerCreditsBalance);
     }
 
     public void SubtractCredits(int amount)
     {
         playerCreditsBalance -= amount;
-        uIManager.UpdateCurrencyDisplay(playerCreditsBalance);
+        OnCurrencyUpdate?.Invoke(playerCreditsBalance);
     }
 
     public bool CanPlayerAfford(int cost)
@@ -44,5 +42,30 @@ public class CurrencyManager : MonoBehaviour
         {
             return false;
         }
+    }
+
+    // subscribe to enemy death event
+    private void OnEnable()
+    {
+        BaseEnemy.OnEnemyDied += HandleEnemyDied;
+        EnemyManager.OnFreezeAbility += SubtractCredits;
+        TowerManager.OnDamageAbility += SubtractCredits;
+        TowerManager.OnBoostAbility += SubtractCredits;
+        EnemyWaveSystem.OnSetCreditBalance += SetCreditBalance;
+    }
+    // unsubscribe to enemy death event
+    private void OnDisable()
+    {
+        BaseEnemy.OnEnemyDied -= HandleEnemyDied;
+        EnemyManager.OnFreezeAbility -= SubtractCredits;
+        TowerManager.OnDamageAbility -= SubtractCredits;
+        TowerManager.OnBoostAbility -= SubtractCredits;
+        EnemyWaveSystem.OnSetCreditBalance -= SetCreditBalance;
+    }
+
+    // event handler: runs when enemy dies
+    private void HandleEnemyDied(GameObject enemy, int credits)
+    {
+        AddCredits(credits);
     }
 }

@@ -4,15 +4,17 @@ using System.Collections.Generic;
 
 public class EnemyManager : MonoBehaviour
 {
+    // events
+    public static event System.Action<int> OnFreezeAbility;
+    public static event System.Action<bool> OnFreezeAbilityBtn;
+    // variables
     public List<GameObject> enemies;
     public AbilitySciptableObject FreezeAbilityData;
-    private UIManager uIManager;
     private CurrencyManager currencyManager;
 
 
     private void Start()
     {
-        uIManager = FindObjectOfType<UIManager>();
         currencyManager = FindObjectOfType<CurrencyManager>();
     }
 
@@ -37,10 +39,11 @@ public class EnemyManager : MonoBehaviour
         if (currencyManager.CanPlayerAfford(FreezeAbilityData.cost))
         {
             // subtract currency
-            currencyManager.SubtractCredits(FreezeAbilityData.cost);
+            OnFreezeAbility?.Invoke(FreezeAbilityData.cost);
+            // currencyManager.SubtractCredits(FreezeAbilityData.cost);
 
             // disable btn to avoid being double clicked
-            uIManager.SetFreezeButtonState(false);
+            OnFreezeAbilityBtn?.Invoke(false);
 
             // enable isFreezeAbilityEnabled to true
             foreach (GameObject enemy in enemies)
@@ -58,7 +61,26 @@ public class EnemyManager : MonoBehaviour
             }
 
             // re enables btn
-            uIManager.SetFreezeButtonState(true);
+            OnFreezeAbilityBtn?.Invoke(true);
         }
+    }
+
+    // subscribe events
+    private void OnEnable()
+    {
+        BaseEnemy.OnEnemyDied += HandleEnemyDied;
+        EnemyWaveSystem.OnNewEnemy += AddEnemy;
+    }
+    // unsubscribe events
+    private void OnDisable()
+    {
+        BaseEnemy.OnEnemyDied -= HandleEnemyDied;
+        EnemyWaveSystem.OnNewEnemy -= AddEnemy;
+    }
+    // event handler: runs when enemy dies
+
+    private void HandleEnemyDied(GameObject enemy, int credits)
+    {
+        RemoveEnemy(enemy);
     }
 }

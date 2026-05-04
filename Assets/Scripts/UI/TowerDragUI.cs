@@ -4,6 +4,10 @@ using UnityEngine.InputSystem;
 
 public class TowerDragUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    // evnts
+    public static event System.Action<GameObject> OnTowerCreated;
+
+    // variables
     public InputActionReference cancelAction;
     [Header("Prefabs")]
     public GameObject towerPrefab;
@@ -18,13 +22,6 @@ public class TowerDragUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     private GameObject towerInstance;
     private int enemyPathLayer;
-    private TowerManager towerManager;
-
-    public void Start()
-    {
-        // inputActions = new InputSystem_Actions();
-        towerManager = FindObjectOfType<TowerManager>();
-    }
 
     private void Update()
     {
@@ -96,7 +93,7 @@ public class TowerDragUI : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
             currencyManager.SubtractCredits(towerInstance.GetComponent<BaseTowerController>().towerData.buildCost);
 
             // adds tower to tower manager
-            towerManager.AddTower(towerInstance);
+            OnTowerCreated?.Invoke(towerInstance);
 
             // plays SFX
             towerInstance.GetComponent<BaseTowerController>().PlayTowerPlacementSFX();
