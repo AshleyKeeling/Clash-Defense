@@ -101,13 +101,32 @@ public class TowerManager : MonoBehaviour
         }
     }
 
+    private void DestroyAllTowers()
+    {
+        // destroy all towers
+        foreach (GameObject tower in towers)
+        {
+            Destroy(tower);
+        }
+        // resets list
+        towers.Clear();
+    }
+
+
     private void OnEnable()
     {
         TowerDragUI.OnTowerCreated += AddTower;
+        EnemyWaveSystem.OnLevelEnded += HandleDestroyAllTowers;
     }
 
     private void OnDisable()
     {
         TowerDragUI.OnTowerCreated -= AddTower;
+        EnemyWaveSystem.OnLevelEnded -= HandleDestroyAllTowers;
+    }
+
+    private void HandleDestroyAllTowers(LevelEndData data)
+    {
+        DestroyAllTowers();
     }
 }

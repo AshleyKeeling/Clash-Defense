@@ -268,18 +268,22 @@ public class UIManager : MonoBehaviour
         UpdateWaveNumber(waveNum);
     }
 
-    private void HandleOnLevelEnded(bool hasNextLevel, int levelNum)
+    private void HandleOnLevelEnded(LevelEndData data)
     {
-        if (hasNextLevel)
+        if (data.HasNextLevel)
         {
-            UpdateLevelCompletePanel_levelNumber(levelNum);
-            UpdateLevelCompletePanel_nextLevelNumber(levelNum + 1);
+            UpdateLevelCompletePanel_levelNumber(data.LevelNumber);
+            UpdateLevelCompletePanel_nextLevelNumber(data.LevelNumber + 1);
             DisplayLevelCompleteUI();
+        }
+        else if (data.LevelNumber > 0)
+        {
+            UpdateAllLevelsCompletePanel_levelNum(data.LevelNumber);
+            DisplayAllLevelsCompleteUI();
         }
         else
         {
-            UpdateAllLevelsCompletePanel_levelNum(levelNum);
-            DisplayAllLevelsCompleteUI();
+            DisplayBuildUI();
         }
     }
 }

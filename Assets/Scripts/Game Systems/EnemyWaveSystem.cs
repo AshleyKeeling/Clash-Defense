@@ -1,6 +1,12 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+public class LevelEndData
+{
+    public bool HasNextLevel;
+    public int LevelNumber;
+}
+
 
 public class EnemyWaveSystem : MonoBehaviour
 {
@@ -9,7 +15,7 @@ public class EnemyWaveSystem : MonoBehaviour
     public static event System.Action<GameObject> OnNewEnemy;
     public static event System.Action<int, int> OnStartWave; // takes level num, wave num
     public static event System.Action OnEndWave;
-    public static event System.Action<bool, int> OnLevelEnded; // takes has level ended, level num
+    public static event System.Action<LevelEndData> OnLevelEnded; // takes has level ended, level num
     public static event System.Action<int> OnUpdateTimer;
 
     // variables
@@ -206,6 +212,13 @@ public class EnemyWaveSystem : MonoBehaviour
         if (gameMode == GameMode.Endless)
         {
             waveNumber++;
+
+            OnLevelEnded?.Invoke(new LevelEndData
+            {
+                HasNextLevel = false,
+                LevelNumber = 0
+            });
+
         }
         else
         {
@@ -226,19 +239,17 @@ public class EnemyWaveSystem : MonoBehaviour
                     // reset wave number
                     waveNumber = 1;
 
-                    hasNextLevel = true;
-                }
-                else
-                {
-                    hasNextLevel = false;
-                    Debug.Log("NO MORE LEVELS");
-                }
-                OnLevelEnded?.Invoke(hasNextLevel, levelIndex);
+                    // levels mode
+                    OnLevelEnded?.Invoke(new LevelEndData
+                    {
+                        HasNextLevel = levelIndex < levels.Count,
+                        LevelNumber = levelIndex
+                    });
 
-                if (hasNextLevel)
-                {
-                    // goes to next level
                     levelIndex++;
+
+                    // reset the balance to the new level's start balance
+                    OnSetCreditBalance?.Invoke(levels[levelIndex - 1].StartGameBalance);
                 }
             }
         }

@@ -18,6 +18,7 @@ public class CurrencyManager : MonoBehaviour
     public void SetCreditBalance(int amount)
     {
         playerCreditsBalance = amount;
+        OnCurrencyUpdate?.Invoke(playerCreditsBalance);
     }
 
     public void AddCredits(int amount)
