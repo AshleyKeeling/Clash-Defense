@@ -338,9 +338,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 947937888}
-        m_TargetAssemblyTypeName: GameSession, Assembly-CSharp
-        m_MethodName: SetEndlessMode
+      - m_Target: {fileID: 1474178906}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: SetEndlessModeBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -966,9 +966,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 947937888}
-        m_TargetAssemblyTypeName: GameSession, Assembly-CSharp
-        m_MethodName: SetLevelMode
+      - m_Target: {fileID: 1474178906}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: SetLevelIndexBtn
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1111,9 +1111,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 947937888}
-        m_TargetAssemblyTypeName: GameSession, Assembly-CSharp
-        m_MethodName: SetLevelMode
+      - m_Target: {fileID: 1474178906}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: SetLevelIndexBtn
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1256,9 +1256,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 947937888}
-        m_TargetAssemblyTypeName: GameSession, Assembly-CSharp
-        m_MethodName: SetLevelMode
+      - m_Target: {fileID: 1474178906}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: SetLevelIndexBtn
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1888,9 +1888,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 947937888}
-        m_TargetAssemblyTypeName: GameSession, Assembly-CSharp
-        m_MethodName: SetLevelMode
+      - m_Target: {fileID: 1474178906}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: SetLevelIndexBtn
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2169,9 +2169,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 947937888}
-        m_TargetAssemblyTypeName: GameSession, Assembly-CSharp
-        m_MethodName: SetLevelMode
+      - m_Target: {fileID: 1474178906}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: SetLevelIndexBtn
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3076,9 +3076,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 947937888}
-        m_TargetAssemblyTypeName: GameSession, Assembly-CSharp
-        m_MethodName: SetLevelMode
+      - m_Target: {fileID: 1474178906}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: SetLevelIndexBtn
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3932,9 +3932,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 947937888}
-        m_TargetAssemblyTypeName: GameSession, Assembly-CSharp
-        m_MethodName: SetLevelMode
+      - m_Target: {fileID: 1474178906}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: SetLevelIndexBtn
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4077,9 +4077,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 947937888}
-        m_TargetAssemblyTypeName: GameSession, Assembly-CSharp
-        m_MethodName: SetLevelMode
+      - m_Target: {fileID: 1474178906}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: SetLevelsModeBtn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4355,9 +4355,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 947937888}
-        m_TargetAssemblyTypeName: GameSession, Assembly-CSharp
-        m_MethodName: SetLevelMode
+      - m_Target: {fileID: 1474178906}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: SetLevelIndexBtn
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5026,9 +5026,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 947937888}
-        m_TargetAssemblyTypeName: GameSession, Assembly-CSharp
-        m_MethodName: SetLevelMode
+      - m_Target: {fileID: 1474178906}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: SetLevelIndexBtn
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6627,9 +6627,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 947937888}
-        m_TargetAssemblyTypeName: GameSession, Assembly-CSharp
-        m_MethodName: SetLevelMode
+      - m_Target: {fileID: 1474178906}
+        m_TargetAssemblyTypeName: StartMenu, Assembly-CSharp
+        m_MethodName: SetLevelIndexBtn
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

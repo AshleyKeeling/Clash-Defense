@@ -46,7 +46,7 @@ public class GameSession : MonoBehaviour
         Instance.selectedMode = GameMode.Endless;
     }
 
-    public void SetLevelMode(int index)
+    public void SetLevelIndex(int index)
     {
         levelIndex = index;
     }

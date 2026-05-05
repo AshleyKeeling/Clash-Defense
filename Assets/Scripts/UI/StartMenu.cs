@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-
+using System.Collections;
+using System.Collections.Generic;
 public class StartMenu : MonoBehaviour
 {
     public GameObject MainMenuPanel;
     public GameObject PlayMenuPanel;
     public GameObject LevelsMenuPanel;
+    private GameSession gameSession;
 
     private void Start()
     {
@@ -33,6 +35,23 @@ public class StartMenu : MonoBehaviour
         MainMenuPanel.SetActive(false);
         PlayMenuPanel.SetActive(false);
         LevelsMenuPanel.SetActive(true);
+    }
+
+    public void SetEndlessModeBtn()
+    {
+        GameSession gameSession = FindObjectOfType<GameSession>();
+        gameSession.SetEndlessMode();
+    }
+
+    public void SetLevelsModeBtn()
+    {
+        GameSession gameSession = FindObjectOfType<GameSession>();
+        gameSession.SetLevelMode();
+    }
+    public void SetLevelIndexBtn(int levelIndex)
+    {
+        GameSession gameSession = FindObjectOfType<GameSession>();
+        gameSession.SetLevelIndex(levelIndex);
     }
 
     public void PlayGame()
