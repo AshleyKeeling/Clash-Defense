@@ -1,6 +1,6 @@
 public enum EnemyType
 {
     Light,
-    Meduim,
+    Medium,
     Heavy
 }

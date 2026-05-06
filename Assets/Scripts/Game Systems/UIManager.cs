@@ -235,8 +235,8 @@ public class UIManager : MonoBehaviour
         TowerManager.OnDamageAbilityBtn += SetDamageButtonState;
         TowerManager.OnBoostAbilityBtn += SetBoostButtonState;
 
-        EnemyWaveSystem.OnStartWave += HandleOnStartWave;
-        EnemyWaveSystem.OnEndWave += DisplayBuildUI;
+        EnemyWaveSystem.OnWaveStarted += HandleOnStartWave;
+        EnemyWaveSystem.OnWaveEnded += DisplayBuildUI;
         EnemyWaveSystem.OnUpdateTimer += UpdateWaveTimeDisplay;
         EnemyWaveSystem.OnLevelEnded += HandleOnLevelEnded;
     }
@@ -250,31 +250,27 @@ public class UIManager : MonoBehaviour
         TowerManager.OnDamageAbilityBtn -= SetDamageButtonState;
         TowerManager.OnBoostAbilityBtn -= SetBoostButtonState;
 
-        EnemyWaveSystem.OnStartWave -= HandleOnStartWave;
-        EnemyWaveSystem.OnEndWave -= DisplayBuildUI;
+        EnemyWaveSystem.OnWaveStarted -= HandleOnStartWave;
+        EnemyWaveSystem.OnWaveEnded -= DisplayBuildUI;
         EnemyWaveSystem.OnUpdateTimer -= UpdateWaveTimeDisplay;
         EnemyWaveSystem.OnLevelEnded -= HandleOnLevelEnded;
 
     }
 
     // handles on start wave
-    private void HandleOnStartWave(GameMode gameMode, int levelNum, int waveNum)
+    private void HandleOnStartWave(StartWaveData data)
     {
         // change UI focus
         DisplayCombatUI();
 
         // updating data
-        UpdateLevelNumber(gameMode, levelNum);
-        UpdateWaveNumber(waveNum);
+        UpdateLevelNumber(data.gameMode, data.levelNumber);
+        UpdateWaveNumber(data.waveNumber);
     }
 
     private void HandleOnLevelEnded(LevelEndData data)
     {
-        if (data.gameMode == GameMode.Endless)
-        {
-            DisplayBuildUI();
-        }
-        else if (data.HasNextLevel)
+        if (data.HasNextLevel)
         {
             UpdateLevelCompletePanel_levelNumber(data.LevelNumber);
             UpdateLevelCompletePanel_nextLevelNumber(data.LevelNumber + 1);
@@ -284,10 +280,6 @@ public class UIManager : MonoBehaviour
         {
             UpdateAllLevelsCompletePanel_levelNum(data.LevelNumber);
             DisplayAllLevelsCompleteUI();
-        }
-        else
-        {
-            DisplayBuildUI();
         }
     }
 }

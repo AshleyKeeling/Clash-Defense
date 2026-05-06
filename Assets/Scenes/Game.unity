@@ -21859,14 +21859,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8901fc3b2cf1e4e939398165989faa2b, type: 2}
   - {fileID: 11400000, guid: 7d9a534abe04f4c72ac03fb54f1bfe15, type: 2}
   lightEnemyPrefab: {fileID: 1393236152541728, guid: cc5c63eca06f24845a87a3b6bbc95301, type: 3}
-  meduimEnemyPrefab: {fileID: 1393236152541728, guid: a7866f4f27447d2479dc87e0fc298c94, type: 3}
+  mediumEnemyPrefab: {fileID: 1393236152541728, guid: a7866f4f27447d2479dc87e0fc298c94, type: 3}
   heavyEnemyPrefab: {fileID: 1393236152541728, guid: d901e60be9fa4e748b307e7bf94dedf0, type: 3}
   enemySpawnPos: {fileID: 2023172976}
   baseEnemyCount: 5
   enemyIncreasePerWave: 2
   baseSpawnDelay: 1
   lightThreshold: 5
-  meduimThreshold: 10
+  mediumThreshold: 0
 --- !u!4 &1187590334
 Transform:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class EnemyManager : MonoBehaviour
     // events
     public static event System.Action<int> OnFreezeAbility;
     public static event System.Action<bool> OnFreezeAbilityBtn;
+    public static event System.Action OnAllEnemiesCleared;
     // variables
     public List<GameObject> enemies;
     public AbilitySciptableObject FreezeAbilityData;
@@ -26,6 +27,10 @@ public class EnemyManager : MonoBehaviour
     public void RemoveEnemy(GameObject enemy)
     {
         enemies.Remove(enemy);
+        if (enemies.Count == 0)
+        {
+            OnAllEnemiesCleared?.Invoke();
+        }
     }
 
     public virtual void ExecuteFreezeAbility()

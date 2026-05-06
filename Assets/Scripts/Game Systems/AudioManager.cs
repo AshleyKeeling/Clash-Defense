@@ -16,19 +16,19 @@ public class AudioManager : MonoBehaviour
 
     private void OnEnable()
     {
-        EnemyWaveSystem.OnStartWave += HandleOnWaveStart;
+        EnemyWaveSystem.OnWaveStarted += HandleOnWaveStart;
         EnemyWaveSystem.OnLevelEnded += HandleOnLevelEnded;
         PlayerBaseHealth.OnPlayerBaseDestroyed += HandleOnPlayerBaseDestroyed;
     }
 
     private void OnDisable()
     {
-        EnemyWaveSystem.OnStartWave -= HandleOnWaveStart;
+        EnemyWaveSystem.OnWaveStarted -= HandleOnWaveStart;
         EnemyWaveSystem.OnLevelEnded -= HandleOnLevelEnded;
         PlayerBaseHealth.OnPlayerBaseDestroyed -= HandleOnPlayerBaseDestroyed;
     }
 
-    private void HandleOnWaveStart(GameMode gameMode, int levelNum, int waveNum)
+    private void HandleOnWaveStart(StartWaveData data)
     {
         PlayClip(WaveStartSFX);
     }

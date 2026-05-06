@@ -7,8 +7,8 @@ public class EnemyWaveSystem : MonoBehaviour
     // events
     public static event System.Action<int> OnSetCreditBalance;
     public static event System.Action<GameObject> OnNewEnemy;
-    public static event System.Action<GameMode, int, int> OnStartWave; // takes gamemode, level num, wave num
-    public static event System.Action OnEndWave;
+    public static event System.Action<StartWaveData> OnWaveStarted; // takes gamemode, level num, wave num
+    public static event System.Action OnWaveEnded;
     public static event System.Action<LevelEndData> OnLevelEnded; // takes has level ended, level num
     public static event System.Action<int> OnUpdateTimer;
 
@@ -18,7 +18,7 @@ public class EnemyWaveSystem : MonoBehaviour
 
     [Header("Enemy Prefabs")]
     public GameObject lightEnemyPrefab;
-    public GameObject meduimEnemyPrefab;
+    public GameObject mediumEnemyPrefab;
     public GameObject heavyEnemyPrefab;
     public Transform enemySpawnPos;
 
@@ -27,19 +27,16 @@ public class EnemyWaveSystem : MonoBehaviour
     public int enemyIncreasePerWave;
     public float baseSpawnDelay;
     public int lightThreshold;
-    public int meduimThreshold;
+    public int mediumThreshold;
 
     // private variables
     private GameMode gameMode;
     private int waveNumber;
     private int levelIndex;
-    private int enemyWaveIndex = 0;
     private int endlessWaveDuration;
-    private bool isWaveActive = false;
-    private bool hasNextLevel;
     private List<EnemyType> endlessEnemiesList = new List<EnemyType>();
 
-    void Start()
+    void Awake()
     {
         waveNumber = 1;
     }
@@ -61,7 +58,12 @@ public class EnemyWaveSystem : MonoBehaviour
     // called from UI button
     public void StartNextWave()
     {
-        OnStartWave?.Invoke(gameMode, levelIndex, waveNumber);
+        OnWaveStarted?.Invoke(new StartWaveData
+        {
+            gameMode = gameMode,
+            levelNumber = levelIndex,
+            waveNumber = waveNumber
+        });
 
         // if endless mode
         if (gameMode == GameMode.Endless)
@@ -81,7 +83,6 @@ public class EnemyWaveSystem : MonoBehaviour
     {
         // reset ememies
         endlessEnemiesList.Clear();
-        isWaveActive = true;
 
         // calaculate total enemies 
         int totalEnemies = baseEnemyCount + (waveNumber * enemyIncreasePerWave);
@@ -95,11 +96,11 @@ public class EnemyWaveSystem : MonoBehaviour
             }
             else
             {
-                if (waveNumber <= meduimThreshold)
+                if (waveNumber <= mediumThreshold)
                 {
                     if (i % 3 == 0)
                     {
-                        endlessEnemiesList.Add(EnemyType.Meduim);
+                        endlessEnemiesList.Add(EnemyType.Medium);
                     }
                     else
                     {
@@ -116,7 +117,7 @@ public class EnemyWaveSystem : MonoBehaviour
                     {
                         if (i % 2 == 0)
                         {
-                            endlessEnemiesList.Add(EnemyType.Meduim);
+                            endlessEnemiesList.Add(EnemyType.Medium);
                         }
                         else
                         {
@@ -130,22 +131,17 @@ public class EnemyWaveSystem : MonoBehaviour
 
     private void SpawnWave(List<EnemyType> enemies, int waveDuration)
     {
-        isWaveActive = true;
-        float spawnFreq = waveDuration / enemies.Count;
+        float spawnFreq = (float)waveDuration / (float)enemies.Count;
         StartCoroutine(SpawnEnemies(enemies, spawnFreq));
         StartCoroutine(WaveTimer(waveDuration));
     }
     IEnumerator SpawnEnemies(List<EnemyType> enemies, float spawnFreq)
     {
-        enemyWaveIndex = 0;
-
-        while (enemyWaveIndex < enemies.Count)
+        foreach (EnemyType enemyType in enemies)
         {
-            SpawnEnemy(enemies[enemyWaveIndex]);
+            SpawnEnemy(enemyType);
             yield return new WaitForSeconds(spawnFreq);
         }
-
-        StartCoroutine(WaitForEnimiesToClear());
     }
     private void SpawnEnemy(EnemyType enemyType)
     {
@@ -154,38 +150,18 @@ public class EnemyWaveSystem : MonoBehaviour
             case EnemyType.Light:
                 GameObject lightEnemy = Instantiate(lightEnemyPrefab, enemySpawnPos);
                 OnNewEnemy?.Invoke(lightEnemy);
-                enemyWaveIndex++;
                 break;
 
-            case EnemyType.Meduim:
-                GameObject meduimEnemy = Instantiate(meduimEnemyPrefab, enemySpawnPos);
-                OnNewEnemy?.Invoke(meduimEnemy);
-                enemyWaveIndex++;
+            case EnemyType.Medium:
+                GameObject mediumEnemy = Instantiate(mediumEnemyPrefab, enemySpawnPos);
+                OnNewEnemy?.Invoke(mediumEnemy);
                 break;
 
             case EnemyType.Heavy:
                 GameObject heavyEnemy = Instantiate(heavyEnemyPrefab, enemySpawnPos);
                 OnNewEnemy?.Invoke(heavyEnemy);
-                enemyWaveIndex++;
                 break;
         }
-    }
-
-
-    private IEnumerator WaitForEnimiesToClear()
-    {
-        if (isWaveActive)
-        {
-            while (GameObject.FindGameObjectsWithTag("Enemy").Length > 0)
-            {
-                // wait one frame
-                yield return null;
-            }
-
-            IncreaseWaveOrLevelIndex();
-            enemyWaveIndex = 0;
-        }
-
     }
 
     private IEnumerator WaveTimer(int waveDuration)
@@ -200,54 +176,65 @@ public class EnemyWaveSystem : MonoBehaviour
         }
     }
 
-    private void IncreaseWaveOrLevelIndex()
+    private void IncreaseWaveOrLevel()
     {
-
-        // check if endless or levels mode
         if (gameMode == GameMode.Endless)
         {
-            waveNumber++;
-
-            OnLevelEnded?.Invoke(new LevelEndData
-            {
-                gameMode = gameMode,
-                HasNextLevel = false,
-                LevelNumber = 0
-            });
-
+            HandleEndlessWaveComplete();
         }
         else
         {
-            // check if there is another wave
-            if (waveNumber < levels[levelIndex - 1].Waves.Count)
+            HandleLevelWaveComplete();
+        }
+    }
+
+    private void HandleEndlessWaveComplete()
+    {
+        waveNumber++;
+        OnWaveEnded?.Invoke();
+    }
+
+    private void HandleLevelWaveComplete()
+    {
+        // check if there is another wave
+        if (waveNumber < levels[levelIndex - 1].Waves.Count)
+        {
+            // goes to next wave
+            waveNumber++;
+            OnWaveEnded?.Invoke();
+        }
+        else
+        {
+            Debug.Log("No More Waves in current Level");
+            // levels mode
+            OnLevelEnded?.Invoke(new LevelEndData
             {
-                // goes to next wave
-                waveNumber++;
-                OnEndWave?.Invoke();
-            }
-            else
+                HasNextLevel = levelIndex < levels.Count,
+                LevelNumber = levelIndex
+            });
+
+            // check if there is another level
+            if (levelIndex < levels.Count)
             {
-                Debug.Log("No More Waves in current Level");
-                // levels mode
-                OnLevelEnded?.Invoke(new LevelEndData
-                {
-                    gameMode = gameMode,
-                    HasNextLevel = levelIndex < levels.Count,
-                    LevelNumber = levelIndex
-                });
+                // reset wave number
+                waveNumber = 1;
 
-                // check if there is another level
-                if (levelIndex < levels.Count)
-                {
-                    // reset wave number
-                    waveNumber = 1;
+                levelIndex++;
 
-                    levelIndex++;
-
-                    // reset the balance to the new level's start balance
-                    OnSetCreditBalance?.Invoke(levels[levelIndex - 1].StartGameBalance);
-                }
+                // reset the balance to the new level's start balance
+                OnSetCreditBalance?.Invoke(levels[levelIndex - 1].StartGameBalance);
             }
         }
+    }
+
+
+    private void OnEnable()
+    {
+        EnemyManager.OnAllEnemiesCleared += IncreaseWaveOrLevel;
+    }
+
+    private void OnDisable()
+    {
+        EnemyManager.OnAllEnemiesCleared -= IncreaseWaveOrLevel;
     }
 }
