@@ -1,19 +1,13 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-public class LevelEndData
-{
-    public bool HasNextLevel;
-    public int LevelNumber;
-}
-
 
 public class EnemyWaveSystem : MonoBehaviour
 {
     // events
     public static event System.Action<int> OnSetCreditBalance;
     public static event System.Action<GameObject> OnNewEnemy;
-    public static event System.Action<int, int> OnStartWave; // takes level num, wave num
+    public static event System.Action<GameMode, int, int> OnStartWave; // takes gamemode, level num, wave num
     public static event System.Action OnEndWave;
     public static event System.Action<LevelEndData> OnLevelEnded; // takes has level ended, level num
     public static event System.Action<int> OnUpdateTimer;
@@ -67,17 +61,18 @@ public class EnemyWaveSystem : MonoBehaviour
     // called from UI button
     public void StartNextWave()
     {
+        OnStartWave?.Invoke(gameMode, levelIndex, waveNumber);
+
         // if endless mode
         if (gameMode == GameMode.Endless)
         {
             GenerateEndlessWave();
             SpawnWave(endlessEnemiesList, endlessWaveDuration);
-            OnStartWave?.Invoke(0, waveNumber);
         }
+        // if level mode
         else
         {
             SpawnWave(levels[levelIndex - 1].Waves[waveNumber - 1].SpawnOrder, levels[levelIndex - 1].Waves[waveNumber - 1].WaveDuration);
-            OnStartWave?.Invoke(levelIndex, waveNumber);
         }
     }
 
@@ -215,6 +210,7 @@ public class EnemyWaveSystem : MonoBehaviour
 
             OnLevelEnded?.Invoke(new LevelEndData
             {
+                gameMode = gameMode,
                 HasNextLevel = false,
                 LevelNumber = 0
             });
@@ -232,19 +228,19 @@ public class EnemyWaveSystem : MonoBehaviour
             else
             {
                 Debug.Log("No More Waves in current Level");
+                // levels mode
+                OnLevelEnded?.Invoke(new LevelEndData
+                {
+                    gameMode = gameMode,
+                    HasNextLevel = levelIndex < levels.Count,
+                    LevelNumber = levelIndex
+                });
 
                 // check if there is another level
                 if (levelIndex < levels.Count)
                 {
                     // reset wave number
                     waveNumber = 1;
-
-                    // levels mode
-                    OnLevelEnded?.Invoke(new LevelEndData
-                    {
-                        HasNextLevel = levelIndex < levels.Count,
-                        LevelNumber = levelIndex
-                    });
 
                     levelIndex++;
 

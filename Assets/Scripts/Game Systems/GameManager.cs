@@ -10,14 +10,12 @@ public class GameManager : MonoBehaviour
     private UIManager uIManager;
     public bool IsPaused;
     private bool IsGameOver;
-    private AudioSource audioSource;
 
     private void Awake()
     {
         enemyWaveSystem = FindObjectOfType<EnemyWaveSystem>();
         currencyManager = FindObjectOfType<CurrencyManager>();
         uIManager = FindObjectOfType<UIManager>();
-        audioSource = GetComponent<AudioSource>();
     }
     private void Start()
     {
@@ -47,8 +45,6 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         IsGameOver = true;
-
-        audioSource.Play();
 
         // disable game systems
         enemyWaveSystem.enabled = false;

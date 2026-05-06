@@ -9,6 +9,7 @@ public class PlayerBaseHealth : MonoBehaviour
     // variables
     public float maxHealth = 100f;
     public float health;
+    private bool HasCalledEvent = false;
 
     void Start()
     {
@@ -27,7 +28,13 @@ public class PlayerBaseHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            OnPlayerBaseDestroyed?.Invoke();
+            if (HasCalledEvent == false)
+            {
+                OnPlayerBaseDestroyed?.Invoke();
+            }
+
+            HasCalledEvent = true;
+
         }
     }
 

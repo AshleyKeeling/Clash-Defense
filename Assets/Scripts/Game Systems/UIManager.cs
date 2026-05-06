@@ -143,9 +143,9 @@ public class UIManager : MonoBehaviour
         waveTimeLeft.text = "Time Left: " + time.ToString(@"mm\:ss");
     }
 
-    public void UpdateLevelNumber(int levelNum)
+    public void UpdateLevelNumber(GameMode gameMode, int levelNum)
     {
-        if (levelNum == 0)
+        if (gameMode == GameMode.Endless)
         {
             levelNumber.text = "Endless";
         }
@@ -258,19 +258,23 @@ public class UIManager : MonoBehaviour
     }
 
     // handles on start wave
-    private void HandleOnStartWave(int levelNum, int waveNum)
+    private void HandleOnStartWave(GameMode gameMode, int levelNum, int waveNum)
     {
         // change UI focus
         DisplayCombatUI();
 
         // updating data
-        UpdateLevelNumber(levelNum);
+        UpdateLevelNumber(gameMode, levelNum);
         UpdateWaveNumber(waveNum);
     }
 
     private void HandleOnLevelEnded(LevelEndData data)
     {
-        if (data.HasNextLevel)
+        if (data.gameMode == GameMode.Endless)
+        {
+            DisplayBuildUI();
+        }
+        else if (data.HasNextLevel)
         {
             UpdateLevelCompletePanel_levelNumber(data.LevelNumber);
             UpdateLevelCompletePanel_nextLevelNumber(data.LevelNumber + 1);
